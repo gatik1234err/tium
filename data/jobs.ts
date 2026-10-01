@@ -1,0 +1,371 @@
+export interface JobListing {
+  id: string;
+  slug: string;
+  title: string;
+  industry: string;
+  location: string;
+  type: "Full-Time" | "Contract" | "Direct Hire" | "Contingent";
+  experience: "Junior" | "Mid-Level" | "Senior" | "Lead" | "Executive";
+  salary: string;
+  postedDate: string;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+  benefits: string[];
+}
+
+export const jobs: JobListing[] = [
+  {
+    id: "job-1",
+    slug: "senior-cloud-solutions-architect",
+    title: "Senior Cloud Solutions Architect",
+    industry: "Information Technology",
+    location: "Austin, TX (Hybrid / Remote)",
+    type: "Full-Time",
+    experience: "Senior",
+    salary: "$165,000 - $195,000 / year",
+    postedDate: "2 days ago",
+    description:
+      "Join a premier fintech enterprise modernizing their core distributed payment processing infrastructure across multi-cloud AWS and Kubernetes environments.",
+    responsibilities: [
+      "Architect and scale highly available, multi-region Kubernetes clusters on AWS",
+      "Collaborate with security and data engineering teams on zero-trust architectures",
+      "Lead migration of legacy monolith microservices to event-driven architectures",
+      "Mentor senior engineers on infrastructure-as-code (Terraform) best practices"
+    ],
+    requirements: [
+      "7+ years experience in distributed cloud infrastructure design",
+      "AWS Certified Solutions Architect (Professional) preferred",
+      "Expertise with Terraform, Docker, Kubernetes, and Istio service mesh",
+      "Demonstrated experience in high-throughput, low-latency financial systems"
+    ],
+    benefits: [
+      "Comprehensive medical, dental, and vision insurance",
+      "401(k) matching up to 5%",
+      "Annual education & conference budget ($3,500)",
+      "Flexible hybrid/remote schedule and unlimited PTO"
+    ]
+  },
+  {
+    id: "job-2",
+    slug: "lead-autonomous-systems-engineer",
+    title: "Lead Autonomous Systems Engineer",
+    industry: "Automobiles",
+    location: "Austin, TX",
+    type: "Direct Hire",
+    experience: "Lead",
+    salary: "$180,000 - $220,000 / year",
+    postedDate: "3 days ago",
+    description:
+      "Shape the sensor fusion and perception algorithms for next-generation commercial autonomous haulage and highway freight vehicles.",
+    responsibilities: [
+      "Design and deploy sensor fusion algorithms incorporating LiDAR, Radar, and Computer Vision",
+      "Lead real-time latency optimization for embedded compute platforms (NVIDIA DRIVE)",
+      "Oversee hardware-in-the-loop (HIL) simulation and closed-track testing validation",
+      "Ensure ISO 26262 functional safety compliance across autonomy software stacks"
+    ],
+    requirements: [
+      "MS or PhD in Robotics, Computer Science, or Electrical Engineering",
+      "5+ years hands-on experience in automotive ADAS or autonomous driving stacks",
+      "Proficiency in modern C++ (C++17/20), ROS2, and CUDA acceleration",
+      "Deep understanding of Kalman filtering, SLAM, and point-cloud segmentation"
+    ],
+    benefits: [
+      "Equity stock options in rapidly scaling EV technology company",
+      "Top-tier PPO healthcare coverage with zero deductible",
+      "State-of-the-art testing facility and hardware lab access",
+      "Relocation package provided for Austin, TX relocation"
+    ]
+  },
+  {
+    id: "job-3",
+    slug: "critical-care-nurse-lead",
+    title: "Critical Care Nurse Lead (ICU)",
+    industry: "Healthcare",
+    location: "Houston, TX",
+    type: "Contract",
+    experience: "Mid-Level",
+    salary: "$52 - $68 / hour + differentials",
+    postedDate: "1 day ago",
+    description:
+      "Provide high-acuity critical care nursing leadership in a leading Level 1 trauma medical center in the Texas Medical Center complex.",
+    responsibilities: [
+      "Coordinate direct patient care for intensive care units and hemodynamic monitoring",
+      "Supervise floor staff, manage triage priorities, and maintain clinical compliance",
+      "Liaise with attending physicians, intensivists, and patient families",
+      "Oversee strict infection control and safety standards"
+    ],
+    requirements: [
+      "Active Texas or Compact State Registered Nurse (RN) License",
+      "Current BLS, ACLS, and CCRN certifications",
+      "Minimum 3 years of clinical ICU or high-acuity critical care experience",
+      "BSN degree from an accredited nursing program required"
+    ],
+    benefits: [
+      "Generous shift differentials for night and weekend coverage",
+      "Guaranteed 36-hour weekly contract with overtime availability",
+      "Comprehensive weekly payroll and per-diem stipends if applicable",
+      "Full medical/dental benefits active on day one"
+    ]
+  },
+  {
+    id: "job-4",
+    slug: "avionics-flight-control-specialist",
+    title: "Avionics Flight Control Specialist",
+    industry: "Aeronautics",
+    location: "Seattle, WA",
+    type: "Full-Time",
+    experience: "Senior",
+    salary: "$150,000 - $185,000 / year",
+    postedDate: "4 days ago",
+    description:
+      "Engineer mission-critical fly-by-wire avionics systems and DO-178C flight software for aerospace defense platforms and commercial orbital space vehicles.",
+    responsibilities: [
+      "Develop embedded real-time software for flight control computers and actuators",
+      "Conduct DO-178C Level A verification, validation, and FAA compliance audits",
+      "Interface avionics sensor suites with MIL-STD-1553 and ARINC 429 digital data buses",
+      "Participate in flight test debriefs and telemetry telemetry data analysis"
+    ],
+    requirements: [
+      "BS in Aerospace, Electrical, or Computer Engineering",
+      "5+ years in avionics flight control development or safety-critical aerospace systems",
+      "Hands-on expertise with C/C++, RTOS (VxWorks, FreeRTOS), and DO-178C guidelines",
+      "Active or eligible for U.S. Security Clearance (Secret / Top Secret)"
+    ],
+    benefits: [
+      "Defense contractor retirement plan with 7% 401(k) company match",
+      "Every other Friday off (9/80 flexible work schedule)",
+      "Comprehensive tuition reimbursement for advanced technical degrees",
+      "Comprehensive family medical, dental, and life coverage"
+    ]
+  },
+  {
+    id: "job-5",
+    slug: "subsea-pipeline-integrity-manager",
+    title: "Subsea Pipeline Integrity Manager",
+    industry: "Oil & Gas",
+    location: "Houston, TX",
+    type: "Contract",
+    experience: "Senior",
+    salary: "$95 - $125 / hour",
+    postedDate: "Just now",
+    description:
+      "Lead subsea pipeline integrity assessments, corrosion control, and regulatory compliance for deepwater offshore Gulf of Mexico infrastructure.",
+    responsibilities: [
+      "Manage in-line inspection (ILI) data analysis, crack detection, and anomaly assessments",
+      "Direct cathodic protection testing and subsea chemical injection audits",
+      "Author engineering critical assessments (ECA) complying with BSEE and API standards",
+      "Coordinate with offshore ROV inspection teams and pipeline operating contractors"
+    ],
+    requirements: [
+      "Degree in Mechanical, Materials, or Petroleum Engineering",
+      "8+ years of offshore deepwater pipeline integrity experience",
+      "NACE or API certification (API 1163, NACE CP Level 3/4) preferred",
+      "Valid TWIC card and BOSIET offshore safety certification"
+    ],
+    benefits: [
+      "Long-term 18-month contract with extension options",
+      "Flexible schedule combining Houston engineering office with offshore mobilizations",
+      "Full contractor insurance suite including worker's compensation and professional liability"
+    ]
+  },
+  {
+    id: "job-6",
+    slug: "vp-global-supply-chain",
+    title: "VP of Global Supply Chain Operations",
+    industry: "Management",
+    location: "Dallas, TX / Remote",
+    type: "Direct Hire",
+    experience: "Executive",
+    salary: "$220,000 - $260,000 / year + 30% Bonus",
+    postedDate: "5 days ago",
+    description:
+      "Direct global procurement, logistics, and multi-facility manufacturing operations for a high-growth industrial technology conglomerate.",
+    responsibilities: [
+      "Orchestrate an international $400M+ procurement and supplier network across US and APAC",
+      "Lead digital supply chain transformation, implementing AI-driven forecasting and ERP tools",
+      "Optimize freight, warehousing, and inventory carrying costs while enhancing delivery reliability",
+      "Mentor and lead a distributed team of 65+ logistics, procurement, and warehouse directors"
+    ],
+    requirements: [
+      "12+ years of senior supply chain leadership in manufacturing or industrial tech",
+      "Proven track record redesigning resilient multi-tier global supply chains",
+      "APICS CSCP or CPIM certification; MBA preferred",
+      "Exceptional executive presence, board communication, and contract negotiation prowess"
+    ],
+    benefits: [
+      "Executive compensation package with performance bonus and equity grants",
+      "Executive medical concierge plan and comprehensive family benefits",
+      "Company car allowance and annual executive health retreat",
+      "Generous executive severance and deferred compensation options"
+    ]
+  },
+  {
+    id: "job-7",
+    slug: "staff-full-stack-engineer",
+    title: "Staff Full-Stack Engineer (Next.js & Go)",
+    industry: "Information Technology",
+    location: "Austin, TX (Remote)",
+    type: "Full-Time",
+    experience: "Senior",
+    salary: "$175,000 - $205,000 / year",
+    postedDate: "1 day ago",
+    description:
+      "Lead web architecture and microservice design for a real-time analytics platform handling billions of daily customer events.",
+    responsibilities: [
+      "Design resilient frontend architectures using Next.js, React Server Components, and TypeScript",
+      "Implement high-throughput backend services in Go and gRPC",
+      "Optimize edge caching, CDN delivery, and Core Web Vitals across web properties",
+      "Partner with product managers to scope and deliver mission-critical feature roadmaps"
+    ],
+    requirements: [
+      "8+ years software engineering experience in modern JavaScript/TypeScript and Go",
+      "Deep understanding of distributed systems, concurrency, and web performance",
+      "Proven track record delivering scalable enterprise SaaS applications"
+    ],
+    benefits: [
+      "Full health, dental, and vision insurance with 100% employer-covered premiums",
+      "Flexible PTO policy and home office equipment stipend ($2,000)",
+      "401(k) with 6% company match"
+    ]
+  },
+  {
+    id: "job-8",
+    slug: "battery-management-systems-engineer",
+    title: "Battery Management Systems (BMS) Engineer",
+    industry: "Automobiles",
+    location: "San Antonio, TX",
+    type: "Contract",
+    experience: "Senior",
+    salary: "$85 - $110 / hour",
+    postedDate: "2 days ago",
+    description:
+      "Develop embedded firmware and cell-balancing algorithms for high-voltage commercial electric vehicle battery packs.",
+    responsibilities: [
+      "Develop safety-critical C/C++ firmware in compliance with ISO 26262 ASIL-D",
+      "Perform thermal modeling and state-of-charge (SoC) estimation testing",
+      "Conduct Hardware-in-the-Loop (HIL) validation for battery control units"
+    ],
+    requirements: [
+      "B.S. or M.S. in Electrical Engineering or Computer Engineering",
+      "5+ years embedded firmware development for high-voltage battery systems",
+      "Familiarity with CAN/LIN protocols and Vector CANoe tools"
+    ],
+    benefits: [
+      "High hourly contract rate with overtime eligibility",
+      "Comprehensive contractor medical coverage options",
+      "Direct contract-to-hire path with premier EV manufacturer"
+    ]
+  },
+  {
+    id: "job-9",
+    slug: "nurse-practitioner-telehealth",
+    title: "Lead Nurse Practitioner (Family Medicine)",
+    industry: "Healthcare",
+    location: "Houston, TX (Hybrid)",
+    type: "Full-Time",
+    experience: "Lead",
+    salary: "$130,000 - $155,000 / year",
+    postedDate: "4 days ago",
+    description:
+      "Deliver compassionate, evidence-based primary care and chronic illness management across outpatient clinics and digital health platforms.",
+    responsibilities: [
+      "Provide comprehensive diagnostic evaluations and personalized care plans",
+      "Collaborate with supervising physicians and multidisciplinary clinical teams",
+      "Guide junior nurse practitioners on clinical guidelines and EHR documentation"
+    ],
+    requirements: [
+      "Master of Science in Nursing (MSN) and active APRN license in Texas",
+      "Board Certification as Family Nurse Practitioner (FNP-C or FNP-BC)",
+      "3+ years of clinical outpatient primary care experience"
+    ],
+    benefits: [
+      "Competitive base salary + clinical quality bonus",
+      "CME allowance of $2,500/year and paid renewal days",
+      "Malpractice insurance coverage with tail policy included"
+    ]
+  },
+  {
+    id: "job-10",
+    slug: "pipeline-integrity-engineer",
+    title: "Senior Pipeline Integrity Specialist",
+    industry: "Oil & Gas",
+    location: "Midland, TX / Permian Basin",
+    type: "Contingent",
+    experience: "Senior",
+    salary: "$90 - $125 / hour",
+    postedDate: "5 days ago",
+    description:
+      "Manage cathodic protection systems, inline inspection (ILI) data evaluation, and regulatory compliance for midstream hydrocarbon transmission lines.",
+    responsibilities: [
+      "Oversee direct assessment and non-destructive examination (NDE) field audits",
+      "Interpret high-resolution magnetic flux leakage (MFL) and ultrasonic inspection logs",
+      "Ensure adherence to PHMSA Title 49 CFR Part 192/195 regulations"
+    ],
+    requirements: [
+      "B.S. in Mechanical, Materials, or Petroleum Engineering",
+      "NACE / AMPP Cathodic Protection Specialist (CP-3 or CP-4) preferred",
+      "6+ years in pipeline integrity management and corrosion assessment"
+    ],
+    benefits: [
+      "Attractive contingent per diem and vehicle allowance",
+      "Travel reimbursement and safety certification sponsorship"
+    ]
+  },
+  {
+    id: "job-11",
+    slug: "propulsion-structures-engineer",
+    title: "Propulsion Structural Analysis Engineer",
+    industry: "Aeronautics",
+    location: "Houston, TX",
+    type: "Direct Hire",
+    experience: "Mid-Level",
+    salary: "$120,000 - $145,000 / year",
+    postedDate: "6 days ago",
+    description:
+      "Perform finite element analysis (FEA) and fatigue life assessments on commercial rocket engine manifolds and thrust chamber assemblies.",
+    responsibilities: [
+      "Conduct non-linear structural, thermal, and modal analyses using ANSYS / NASTRAN",
+      "Participate in hot-fire test reviews and correlate test telemetry with predictive models",
+      "Document structural margin of safety reports for FAA commercial launch licenses"
+    ],
+    requirements: [
+      "Degree in Aerospace, Mechanical, or Structural Engineering",
+      "4+ years finite element modeling of aerospace turbomachinery or pressurized vessels",
+      "Active US Citizenship or Permanent Resident status required (ITAR compliance)"
+    ],
+    benefits: [
+      "Relocation package to Houston launch/testing facilities",
+      "Generous stock equity grants in space technology venture",
+      "Complete healthcare, dental, and disability insurance"
+    ]
+  },
+  {
+    id: "job-12",
+    slug: "director-corporate-fp-and-a",
+    title: "Director of Corporate FP&A",
+    industry: "Management",
+    location: "Austin, TX (Hybrid)",
+    type: "Full-Time",
+    experience: "Senior",
+    salary: "$170,000 - $210,000 / year + Equity",
+    postedDate: "1 week ago",
+    description:
+      "Drive financial modeling, headcount forecasting, and strategic M&A valuation models for an enterprise technology client.",
+    responsibilities: [
+      "Lead annual budgeting, monthly forecasting, and executive board reporting packages",
+      "Build complex financial sensitivity models for new market expansion initiatives",
+      "Partner directly with the Chief Financial Officer and business unit leaders"
+    ],
+    requirements: [
+      "7+ years progressive FP&A experience in corporate or high-growth tech environments",
+      "Advanced financial modeling proficiency; experience with Adaptive Insights / NetSuite",
+      "Bachelor's in Finance, Accounting, or Economics; CPA or MBA a strong plus"
+    ],
+    benefits: [
+      "Executive bonus tier (up to 25%) and company stock grant",
+      "Unlimited PTO policy and flexible remote working days",
+      "Comprehensive 401(k) matching program"
+    ]
+  }
+];
