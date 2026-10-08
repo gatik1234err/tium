@@ -1,9 +1,29 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Shield, Lock } from "lucide-react";
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+  const openCookiePreferences = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("tium_open_cookie_preferences"));
+    }
+  };
+
+  const openTermsModal = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("tium_open_terms_modal"));
+    }
+  };
+
   return (
     <footer className="soothing-blue-mesh text-slate-300 border-t border-blue-900/60 relative overflow-hidden">
       {/* Ambient decorative glow */}
@@ -50,7 +70,8 @@ export function Footer() {
                     ["Why TIUM", "/why-tium"],
                     ["Careers", "/careers"],
                     ["Contact", "/contact"],
-                    ["Privacy", "/privacy"],
+                    ["Privacy Policy", "/privacy"],
+                    ["Terms & Conditions", "/terms"],
                   ].map(([label, href]) => (
                     <li key={href}>
                       <Link href={href} className="text-blue-100/70 hover:text-white transition-colors">{label}</Link>
@@ -103,9 +124,30 @@ export function Footer() {
       <div className="bg-black/30 backdrop-blur-sm border-t border-white/5 relative z-10">
         <Container className="py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-blue-200/60 font-mono">
           <p>© 2026 TIUM Staffing LLC. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Support</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <button
+              type="button"
+              onClick={openTermsModal}
+              className="hover:text-white transition-colors cursor-pointer text-left"
+            >
+              Terms Popout
+            </button>
+            <button
+              type="button"
+              onClick={openCookiePreferences}
+              className="hover:text-white transition-colors cursor-pointer text-left"
+            >
+              Cookie Preferences
+            </button>
+            <Link
+              href="/admin"
+              className="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-white/10 hover:bg-white/20 text-blue-100 hover:text-white transition-colors"
+            >
+              <Lock className="w-3 h-3 text-sky-400" />
+              Admin
+            </Link>
           </div>
         </Container>
       </div>

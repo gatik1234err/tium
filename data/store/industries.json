@@ -1,0 +1,248 @@
+[
+  {
+    "id": "technology",
+    "number": "01",
+    "name": "Information Technology",
+    "slug": "technology",
+    "tagline": "Engineering the digital future with forward-thinking tech innovators.",
+    "subtitle": "Digital Transformation & Cloud Ecosystems",
+    "overview": "From AI and distributed cloud architecture to cybersecurity and product engineering, technology moves faster than traditional recruiting can keep pace. TIUM bridges this gap by maintaining direct relationships with elite software engineers, architects, data leaders, and devops experts who catalyze technological transformation.",
+    "marketInsights": "Rapid advances in generative AI, cloud-native architectures, and data engineering require specialized talent capable of architecting resilient, scalable platforms under continuous release cadences.",
+    "specializations": [
+      "Cloud & Distributed Systems (AWS, Azure, GCP)",
+      "Full-Stack & Modern Web Architecture",
+      "Artificial Intelligence & Machine Learning",
+      "Cybersecurity & Threat Intelligence",
+      "DevOps, SRE & Platform Engineering",
+      "Data Engineering & Real-time Analytics"
+    ],
+    "keyRoles": [
+      "Staff & Principal Software Engineers",
+      "Cloud Solutions Architects",
+      "Data Scientists & ML Engineers",
+      "DevSecOps Leads",
+      "Product Managers & Engineering Directors",
+      "Cybersecurity Analysts"
+    ],
+    "stats": [
+      {
+        "label": "Tech Placements",
+        "value": "3,500+"
+      },
+      {
+        "label": "Time to Shortlist",
+        "value": "48 hrs"
+      },
+      {
+        "label": "Technical Screen Accuracy",
+        "value": "98%"
+      }
+    ],
+    "accentColor": "from-blue-600/30 to-indigo-900/40"
+  },
+  {
+    "id": "healthcare",
+    "number": "02",
+    "name": "Healthcare",
+    "slug": "healthcare",
+    "tagline": "Compassionate, certified caregivers and clinical leaders improving patient outcomes.",
+    "subtitle": "Clinical Excellence & Medical Technology",
+    "overview": "Modern healthcare systems face unprecedented staffing pressures. TIUM provides dependable, fully-credentialed medical practitioners, nursing professionals, allied health specialists, and healthcare administration leaders to hospitals, ambulatory centers, and research organizations.",
+    "marketInsights": "With ongoing shifts toward specialized outpatient care, telemedicine, and stringent clinical compliance, medical organizations require adaptable clinical talent that maintains patient safety and diagnostic rigor without compromise.",
+    "specializations": [
+      "Critical Care & Emergency Nursing",
+      "Allied Health Professionals & Therapists",
+      "Clinical Trial & Bio-pharmaceutical Staffing",
+      "Health Informatics & EMR Implementation",
+      "Hospital Administration & Department Leadership",
+      "Radiology & Diagnostic Specialists"
+    ],
+    "keyRoles": [
+      "Registered Nurses (ICU, ER, Telemetry)",
+      "Nurse Practitioners & Physician Assistants",
+      "Clinical Research Coordinators",
+      "Medical Laboratory Technologists",
+      "Health Information Managers",
+      "Directors of Nursing"
+    ],
+    "stats": [
+      {
+        "label": "Credential Verification Rate",
+        "value": "100%"
+      },
+      {
+        "label": "Clinical Placement Velocity",
+        "value": "< 72 hrs"
+      },
+      {
+        "label": "Hospital Partner Retention",
+        "value": "97%"
+      }
+    ],
+    "accentColor": "from-emerald-600/30 to-teal-900/40"
+  },
+  {
+    "id": "automobiles",
+    "number": "03",
+    "name": "Automobiles",
+    "slug": "automobiles",
+    "tagline": "Powering the electrification, autonomy, and advanced manufacturing revolution.",
+    "subtitle": "EV, Autonomous Systems & Smart Manufacturing",
+    "overview": "The automotive sector is undergoing its most radical transformation in a century. TIUM equips Tier-1 suppliers, EV OEMs, and autonomous mobility pioneers with specialized mechanical engineers, battery chemists, embedded firmware developers, and precision assembly supervisors.",
+    "marketInsights": "Electrification and autonomous driving algorithms necessitate cross-disciplinary talent blending deep mechanical engineering with high-reliability embedded software and battery chemistry safety protocols.",
+    "specializations": [
+      "Electric Vehicle (EV) Powertrain & Battery Systems",
+      "Autonomous Driving Systems & Sensor Fusion",
+      "Embedded Automotive Software (AUTOSAR, CAN)",
+      "Chassis, Body & Mechanical Design (CAD/CAE)",
+      "Lean Manufacturing & Quality Assurance",
+      "Supply Chain & Component Sourcing"
+    ],
+    "keyRoles": [
+      "Battery Management Systems (BMS) Engineers",
+      "Embedded Software Developers",
+      "Vehicle Dynamics Engineers",
+      "Automotive Quality Inspectors",
+      "Plant Operations Directors",
+      "Robotics & Automation Specialists"
+    ],
+    "stats": [
+      {
+        "label": "Automotive Projects Staffed",
+        "value": "850+"
+      },
+      {
+        "label": "EV Specialists Deployed",
+        "value": "1,200+"
+      },
+      {
+        "label": "Safety Compliance Record",
+        "value": "100%"
+      }
+    ],
+    "accentColor": "from-amber-600/30 to-orange-900/40"
+  },
+  {
+    "id": "oil-gas",
+    "number": "04",
+    "name": "Oil & Gas",
+    "slug": "oil-gas",
+    "tagline": "Mission-critical engineering and operational talent for global energy infrastructure.",
+    "subtitle": "Upstream, Midstream & Renewable Transition",
+    "overview": "Energy production demands unwavering commitment to safety, compliance, and technical precision. TIUM sources certified petroleum engineers, offshore drilling specialists, pipeline integrity managers, and environmental compliance officers for upstream, midstream, and downstream operations.",
+    "marketInsights": "Energy operators are balancing traditional hydrocarbon efficiency with carbon-capture initiatives and ESG compliance, demanding engineers skilled in both legacy infrastructure and green-transition technologies.",
+    "specializations": [
+      "Subsea & Offshore Engineering",
+      "Reservoir & Production Optimization",
+      "Pipeline Integrity & Corrosion Control",
+      "Health, Safety & Environmental (HSE) Compliance",
+      "Refinery Maintenance & Turnaround Management",
+      "Carbon Capture & Renewable Integration"
+    ],
+    "keyRoles": [
+      "Petroleum & Reservoir Engineers",
+      "Subsea Operations Supervisors",
+      "HSE Directors & Compliance Managers",
+      "Pipeline Inspectors & Technicians",
+      "Process Safety Specialists",
+      "Turnaround Project Managers"
+    ],
+    "stats": [
+      {
+        "label": "HSE Compliance Record",
+        "value": "Zero Violations"
+      },
+      {
+        "label": "Engineers Mobilized",
+        "value": "2,800+"
+      },
+      {
+        "label": "Offshore Ready Roster",
+        "value": "500+"
+      }
+    ],
+    "accentColor": "from-cyan-600/30 to-blue-950/40"
+  },
+  {
+    "id": "aeronautics",
+    "number": "05",
+    "name": "Aeronautics & Aerospace",
+    "slug": "aeronautics",
+    "tagline": "Elevating aerospace, defense, and orbital technology with rigorous talent.",
+    "subtitle": "Flight Systems, Defense & Space Exploration",
+    "overview": "Aerospace innovation demands zero margin for error. TIUM delivers defense-cleared aerospace engineers, avionics technicians, propulsion experts, and composite materials scientists to defense contractors, commercial aviation leaders, and commercial space ventures.",
+    "marketInsights": "The surge in commercial spaceflight, satellite constellations, and next-generation defense aviation requires rigorous clearance compliance, AS9100 quality adherence, and DO-178C flight software verification.",
+    "specializations": [
+      "Avionics & Flight Control Software (DO-178C)",
+      "Propulsion & Thermal Dynamics Engineering",
+      "Aerodynamics, CFD & Structural Analysis",
+      "Composite Materials & Additive Manufacturing",
+      "ITAR & Secret/Top-Secret Security Clearances",
+      "Spacecraft Integration & Launch Operations"
+    ],
+    "keyRoles": [
+      "Avionics Systems Engineers",
+      "Propulsion Test Engineers",
+      "Structural Stress Analysts",
+      "Quality Assurance & AS9100 Auditors",
+      "Flight Dynamics Specialists",
+      "Defense Program Managers"
+    ],
+    "stats": [
+      {
+        "label": "Security Cleared Roster",
+        "value": "85%"
+      },
+      {
+        "label": "Flight Software Audits Passed",
+        "value": "100%"
+      },
+      {
+        "label": "Aerospace Programs Supported",
+        "value": "140+"
+      }
+    ],
+    "accentColor": "from-sky-500/30 to-slate-900/40"
+  },
+  {
+    "id": "management",
+    "number": "06",
+    "name": "Management & Corporate",
+    "slug": "management",
+    "tagline": "Executive leaders, operational visionaries, and organizational architects.",
+    "subtitle": "Corporate Strategy, Finance & Operations",
+    "overview": "Great strategies fail without the right leadership to execute them. TIUM partners with boards, executive committees, and business owners to place transformative directors, operational executives, financial controllers, and change-management leaders.",
+    "marketInsights": "In a volatile macro environment, organizations require resilient operators who can navigate supply chain complexities, digital adoption, and cross-border workforce coordination.",
+    "specializations": [
+      "Executive & C-Suite Leadership",
+      "Finance, Treasury & Corporate Accounting",
+      "Supply Chain & Strategic Procurement",
+      "Human Capital & Organizational Development",
+      "Enterprise Program & Change Management",
+      "Legal, Risk & Regulatory Governance"
+    ],
+    "keyRoles": [
+      "Chief Operating Officers (COO)",
+      "Chief Financial Officers & Controllers",
+      "VPs of Human Resources",
+      "Supply Chain Directors",
+      "Senior Directors of Strategy",
+      "Transformation Program Managers"
+    ],
+    "stats": [
+      {
+        "label": "Executive Retention Rate",
+        "value": "96.5%"
+      },
+      {
+        "label": "Leadership Searches Completed",
+        "value": "620+"
+      },
+      {
+        "label": "Client Re-engagement Rate",
+        "value": "94%"
+      }
+    ],
+    "accentColor": "from-purple-600/30 to-violet-950/40"
+  }
+]

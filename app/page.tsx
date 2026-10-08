@@ -9,12 +9,17 @@ import { WhyTiumSection } from "@/components/home/WhyTiumSection";
 import { MissionVisionSection } from "@/components/home/MissionVisionSection";
 import { ValuesSection } from "@/components/home/ValuesSection";
 import { DualCtaSection } from "@/components/home/DualCtaSection";
+import { getPages } from "@/lib/store";
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const pages = await getPages();
+
   return (
     <>
       {/* 1. Hero */}
-      <Hero />
+      <Hero content={pages?.home?.hero} />
 
       {/* 2. Trust / Industry Strip */}
       <TrustBar />

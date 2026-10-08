@@ -11,12 +11,26 @@ function Rule() {
   return <div className="h-px w-full bg-slate-200" />;
 }
 
-export function Hero() {
+interface HeroProps {
+  content?: {
+    headlinePart1: string;
+    headlineAccent: string;
+    headlinePart2: string;
+    description: string;
+    primaryCtaText: string;
+    primaryCtaLink: string;
+    secondaryCtaText: string;
+    secondaryCtaLink: string;
+    stats?: { value: string; label: string }[];
+  };
+}
+
+export function Hero({ content }: HeroProps) {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = ["Employers", "Candidates", "Partners"];
 
-  const stats = [
+  const stats = content?.stats && content.stats.length > 0 ? content.stats : [
     { value: "< 48h", label: "Average Shortlist" },
     { value: "98.4%", label: "SLA Fulfillment" },
     { value: "6", label: "Industry Practices" },
@@ -32,23 +46,24 @@ export function Hero() {
           <div className="space-y-8">
             {/* Main headline */}
             <h1 className="text-5xl sm:text-6xl xl:text-7xl font-bold font-display tracking-tight text-slate-900 leading-[1.05]">
-              The right talent{" "}
-              <span className="text-blue-600">can change</span>{" "}
-              everything.
+              {content?.headlinePart1 || "The right talent"}{" "}
+              <span className="text-blue-600">{content?.headlineAccent || "can change"}</span>{" "}
+              {content?.headlinePart2 || "everything."}
             </h1>
 
             {/* Descriptor */}
             <p className="text-lg text-slate-500 leading-relaxed max-w-md">
-              TIUM connects businesses with exceptional talent through flexible, industry-focused workforce solutions across six critical sectors.
+              {content?.description ||
+                "TIUM connects businesses with exceptional talent through flexible, industry-focused workforce solutions across six critical sectors."}
             </p>
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Button href="/contact?intent=talent" variant="primary" size="lg" withArrow>
-                Find Talent
+              <Button href={content?.primaryCtaLink || "/contact?intent=talent"} variant="primary" size="lg" withArrow>
+                {content?.primaryCtaText || "Find Talent"}
               </Button>
-              <Button href="/careers" variant="outline" size="lg">
-                Explore Careers
+              <Button href={content?.secondaryCtaLink || "/careers"} variant="outline" size="lg">
+                {content?.secondaryCtaText || "Explore Careers"}
               </Button>
             </div>
           </div>

@@ -1,0 +1,113 @@
+{
+  "home": {
+    "hero": {
+      "headlinePart1": "The right talent",
+      "headlineAccent": "can change",
+      "headlinePart2": "everything.",
+      "description": "TIUM connects businesses with exceptional talent through flexible, industry-focused workforce solutions across six critical sectors.",
+      "primaryCtaText": "Find Talent",
+      "primaryCtaLink": "/contact?intent=talent",
+      "secondaryCtaText": "Explore Careers",
+      "secondaryCtaLink": "/careers",
+      "stats": [
+        {
+          "value": "< 48h",
+          "label": "Average Shortlist"
+        },
+        {
+          "value": "98.4%",
+          "label": "SLA Fulfillment"
+        },
+        {
+          "value": "6",
+          "label": "Industry Practices"
+        }
+      ]
+    },
+    "intro": {
+      "eyebrow": "WHO WE ARE",
+      "headline": "Precision workforce solutions for demanding industries.",
+      "description": "At TIUM Staffing, we recognize that behind every groundbreaking product, flawless clinical outcome, and efficient production line are extraordinary people. We provide workforce solutions tailored precisely to your needs — emphasizing client satisfaction, pre-qualified talent, and long-term partnership.",
+      "quote": "People are the foundation of every successful organization.",
+      "quoteAuthor": "TIUM Staffing",
+      "proofPoints": [
+        "15,000+ pre-screened candidates across 6 industry verticals",
+        "98.4% SLA compliance across all active client engagements",
+        "Average candidate shortlist delivered within 48 hours",
+        "Full regulatory, credential, and background compliance"
+      ]
+    },
+    "dualCta": {
+      "employers": {
+        "eyebrow": "FOR EMPLOYERS",
+        "title": "Scale your workforce with high-performing talent.",
+        "desc": "Whether you need contingent specialists or a multi-site RPO deployment, our recruitment teams deliver within 48 hours.",
+        "ctaText": "Request Staffing Consultation",
+        "ctaLink": "/contact?intent=talent"
+      },
+      "candidates": {
+        "eyebrow": "FOR PROFESSIONALS",
+        "title": "Find your next career defining opportunity.",
+        "desc": "Explore high-impact positions across Information Technology, Healthcare, Automotive, Energy, and Aeronautics.",
+        "ctaText": "Browse Open Positions",
+        "ctaLink": "/careers"
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "About TIUM Staffing",
+    "title": "Connecting human potential with organizational purpose.",
+    "storyTitle": "Redefining recruitment through consultative excellence.",
+    "storyParagraph1": "TIUM was established to solve a critical market disconnect: traditional staffing agencies prioritized transaction speed over candidate fit, delivering high candidate churn and costly hiring delays.",
+    "storyParagraph2": "Headquartered in Austin, Texas, TIUM was built with a different philosophy: combining deep sector domain expertise, AI-driven talent mapping, and rigorous consultative vetting to deliver long-term organizational value.",
+    "statNumber": "98.4%",
+    "statLabel": "Client SLA Fulfillment Rate",
+    "missionTitle": "Our Mission",
+    "missionDesc": "To empower innovative enterprises with pre-screened, high-performing talent while elevating professional careers through purposeful placement.",
+    "visionTitle": "Our Vision",
+    "visionDesc": "To become North America's most trusted workforce advisory partner across mission-critical technology, engineering, and healthcare industries."
+  },
+  "whyTium": {
+    "eyebrow": "WHY CHOOSE TIUM",
+    "title": "Built differently to deliver better staffing outcomes.",
+    "description": "From proprietary AI talent intelligence to dedicated industry practice leads, here is what sets TIUM apart from traditional staffing agencies.",
+    "stats": [
+      {
+        "value": "48h",
+        "label": "Average Shortlist Delivery",
+        "sub": "Rapid matching without sacrificing quality"
+      },
+      {
+        "value": "98.4%",
+        "label": "Client SLA Compliance",
+        "sub": "Accountability backed by metric guarantees"
+      },
+      {
+        "value": "85%+",
+        "label": "Repeat Client Engagement",
+        "sub": "Long-term relationships built on trust"
+      },
+      {
+        "value": "6",
+        "label": "Dedicated Industry Practices",
+        "sub": "Domain-specific recruitment recruiters"
+      }
+    ]
+  },
+  "careers": {
+    "eyebrow": "CAREERS AT TIUM",
+    "title": "Join mission-driven teams shaping the future.",
+    "description": "Discover direct hire, contingent, and contract positions across world-class organizations. Filter by industry, contract type, or location.",
+    "searchPlaceholder": "Search by title, skill, or keyword...",
+    "noResultsText": "No positions found matching your criteria."
+  },
+  "contact": {
+    "eyebrow": "GET IN TOUCH",
+    "title": "Let's discuss your workforce and talent strategy.",
+    "description": "Whether you are looking to hire high-performing talent or exploring your next career milestone, our recruiters are here to guide you.",
+    "phone": "+1 (307) 529 0201",
+    "email": "support@tiumtech.com",
+    "address": "5900 Balcone Dr STE 100, Austin, TX 78731",
+    "hours": "Monday – Friday: 8:00 AM – 6:00 PM CST"
+  }
+}

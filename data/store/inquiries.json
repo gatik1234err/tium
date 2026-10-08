@@ -1,0 +1,28 @@
+[
+  {
+    "id": "inq-1",
+    "type": "contact",
+    "createdAt": "2026-10-08T14:30:00.000Z",
+    "fullName": "Marcus Vance",
+    "email": "m.vance@solarisdynamics.com",
+    "phone": "+1 (512) 890-4421",
+    "company": "Solaris Dynamics",
+    "intent": "Staffing",
+    "message": "Looking for 4 Senior Cloud Solutions Architects for our new Austin data center project.",
+    "status": "new"
+  },
+  {
+    "id": "inq-2",
+    "type": "job_application",
+    "createdAt": "2026-10-08T18:15:00.000Z",
+    "fullName": "Elena Rostova",
+    "email": "elena.rostova@gmail.com",
+    "phone": "+1 (737) 201-9984",
+    "company": "",
+    "intent": "Career Opportunity",
+    "jobSlug": "senior-cloud-solutions-architect",
+    "jobTitle": "Senior Cloud Solutions Architect",
+    "message": "10+ years architecting AWS infrastructure and Kubernetes clusters. Excited about this opportunity.",
+    "status": "reviewed"
+  }
+]

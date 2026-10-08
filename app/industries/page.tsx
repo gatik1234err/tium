@@ -3,21 +3,29 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { industries } from "@/data/industries";
+import { getIndustries } from "@/lib/store";
 import { Cpu, Activity, Car, Flame, Rocket, Building2, ArrowRight } from "lucide-react";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Industries",
   description:
-    "TIUM serves six critical industry verticals: Technology, Healthcare, Automobiles & EV, Oil & Gas, Aeronautics, and Management.",
+    "TIUM serves critical industry verticals: Technology, Healthcare, Automobiles & EV, Oil & Gas, Aeronautics, and Management.",
 };
 
 const iconMap: Record<string, React.ElementType> = {
-  technology: Cpu, healthcare: Activity, automobiles: Car,
-  "oil-gas": Flame, aeronautics: Rocket, management: Building2,
+  technology: Cpu,
+  healthcare: Activity,
+  automobiles: Car,
+  "oil-gas": Flame,
+  aeronautics: Rocket,
+  management: Building2,
 };
 
-export default function IndustriesPage() {
+export default async function IndustriesPage() {
+  const industries = await getIndustries();
+
   return (
     <div className="pt-16 bg-white">
       {/* ── Page header ── */}
@@ -27,7 +35,7 @@ export default function IndustriesPage() {
             Industry Practices
           </p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 font-display leading-[1.05] max-w-3xl">
-            Specialized staffing across six critical verticals.
+            Specialized staffing across critical verticals.
           </h1>
           <p className="mt-6 text-xl text-slate-500 max-w-2xl leading-relaxed">
             Our dedicated practice groups place professionals with the domain expertise and credentials required in demanding, high-stakes industries.
@@ -45,70 +53,66 @@ export default function IndustriesPage() {
                 <Link
                   key={ind.id}
                   href={`/industries/${ind.slug}`}
-                  className="group grid grid-cols-1 lg:grid-cols-12 gap-0 py-12 block"
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-0 py-16 group hover:bg-slate-50/50 transition-colors block"
                 >
                   {/* Left */}
-                  <div className="lg:col-span-5 flex items-start gap-6 mb-6 lg:mb-0 lg:pr-12">
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 group-hover:bg-blue-600 flex items-center justify-center shrink-0 transition-all">
-                      <Icon className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
+                  <div className="lg:col-span-5 lg:pr-16 space-y-4 mb-8 lg:mb-0">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="text-xs font-mono font-bold text-slate-400 num-label">
+                        {ind.number}
+                      </span>
+                      <div className="h-px flex-1 bg-slate-200" />
                     </div>
+
+                    <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display group-hover:text-blue-600 transition-colors">
+                      {ind.name}
+                    </h2>
+                    <p className="text-sm font-medium text-blue-600 font-mono">
+                      {ind.subtitle}
+                    </p>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      {ind.overview}
+                    </p>
+                    <div className="pt-2 flex items-center gap-2 text-sm font-semibold text-blue-600">
+                      <span>Explore Practice</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </div>
+
+                  {/* Right: stats + specializations */}
+                  <div className="lg:col-span-7 lg:pl-16 lg:border-l border-slate-100 flex flex-col justify-between">
                     <div>
-                      <span className="font-mono text-xs text-slate-400 num-label">{ind.number}</span>
-                      <h2 className="text-2xl font-bold text-slate-900 font-display mt-1 group-hover:text-blue-600 transition-colors">
-                        {ind.name}
-                      </h2>
-                      <p className="text-sm text-slate-500 mt-0.5">{ind.subtitle}</p>
+                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-slate-400 font-mono mb-4">
+                        Practice Specializations
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-8">
+                        {ind.specializations.slice(0, 5).map((spec) => (
+                          <span
+                            key={spec}
+                            className="px-3 py-1.5 rounded-md text-xs font-medium text-slate-700 bg-slate-100 border border-slate-200"
+                          >
+                            {spec}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Middle: overview */}
-                  <div className="lg:col-span-4 lg:border-l lg:border-r border-slate-100 lg:px-10 mb-6 lg:mb-0">
-                    <p className="text-sm text-slate-600 leading-relaxed">{ind.tagline}</p>
-                    <div className="mt-4 flex gap-2 flex-wrap">
-                      {ind.keyRoles.slice(0, 3).map((r) => (
-                        <span key={r} className="text-xs px-3 py-1 rounded-full bg-slate-100 text-slate-600 font-medium">
-                          {r}
-                        </span>
+                    <div className="pt-6 border-t border-slate-100 grid grid-cols-3 gap-6">
+                      {ind.stats.map((s) => (
+                        <div key={s.label}>
+                          <p className="text-2xl sm:text-3xl font-bold text-slate-900 font-display">{s.value}</p>
+                          <p className="text-xs text-slate-400 mt-1">{s.label}</p>
+                        </div>
                       ))}
-                    </div>
-                  </div>
-
-                  {/* Right: image placeholder + stat */}
-                  <div className="lg:col-span-3 lg:pl-10 space-y-3">
-                    <div className="img-placeholder rounded-lg aspect-video relative overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                        <Icon className="w-8 h-8 text-blue-400/30" />
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <div>
-                        <p className="font-bold text-blue-600 font-display">{ind.stats[0]?.value}</p>
-                        <p className="text-xs text-slate-400">{ind.stats[0]?.label}</p>
-                      </div>
-                      <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-blue-600 flex items-center justify-center transition-all">
-                        <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-white transition-colors" />
-                      </div>
                     </div>
                   </div>
                 </Link>
               );
             })}
           </div>
-        </Container>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-slate-50">
-        <Container className="text-center max-w-2xl mx-auto space-y-6">
-          <h2 className="text-3xl font-bold text-slate-900 font-display">
-            Don&apos;t see your sector?
-          </h2>
-          <p className="text-slate-500">
-            TIUM builds bespoke recruitment practices for emerging markets. Let&apos;s discuss your industry requirements.
-          </p>
-          <Button href="/contact" variant="primary" size="lg" withArrow>
-            Discuss Your Industry
-          </Button>
         </Container>
       </section>
     </div>

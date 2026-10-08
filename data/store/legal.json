@@ -1,0 +1,57 @@
+{
+  "cookies": {
+    "enabled": true,
+    "title": "Cookie & Privacy Preferences",
+    "message": "TIUM Staffing uses cookies and similar technologies to enhance site navigation, analyze performance, and deliver personalized candidate & workforce solutions. You can accept all or customize preferences.",
+    "acceptAllText": "Accept All Cookies",
+    "declineText": "Necessary Only",
+    "settingsText": "Preferences",
+    "policyUrl": "/privacy",
+    "termsUrl": "/terms",
+    "lastUpdated": "October 2026"
+  },
+  "terms": {
+    "enabled": true,
+    "version": "2.1",
+    "lastUpdated": "October 2026",
+    "modalTrigger": "first_visit",
+    "title": "Terms and Conditions of Service",
+    "subtitle": "Please review and accept our workforce terms of service and candidate/client compliance guidelines before continuing.",
+    "checkboxLabel": "I have read, understand, and agree to TIUM's Terms and Conditions and Privacy Policy.",
+    "agreeButtonText": "I Agree & Continue",
+    "declineButtonText": "Decline",
+    "content": "### 1. Acceptance of Terms\nBy accessing or using the TIUM Staffing website (https://tiumtech.com) and any associated staffing, recruitment, candidate sourcing, or advisory services (collectively, the \"Services\"), you agree to be bound by these Terms and Conditions (\"Terms\"). If you do not agree to these Terms, you may not access or use the Services.\n\n### 2. Nature of Services\nTIUM Staffing LLC (\"TIUM\", \"we\", \"us\", or \"our\") operates as a specialized workforce solutions and employment agency connecting qualified talent with enterprise employers across Information Technology, Healthcare, Automotive & EV, Oil & Gas, Aeronautics, and Executive Management sectors.\n\n### 3. User Representations & Candidate Submissions\n- Candidates warrant that all submitted information, resumes, employment histories, and credentials are accurate, truthful, and up-to-date.\n- TIUM does not guarantee employment or interview offers upon candidate resume submission.\n- Clients and employers agree to evaluate candidates strictly in accordance with federal, state, and local non-discrimination and equal opportunity laws (EEO/Title VII/ADEA/ADA).\n\n### 4. Confidentiality & Proprietary Information\nAll client business scopes, candidate profiles, and proprietary recruitment methodologies shared via our platform are confidential. Unauthorized duplication, dissemination, or reverse-engineering is strictly prohibited.\n\n### 5. Intellectual Property\nAll content, trademarks, logos, typography, visual layouts, and digital code on this website are the intellectual property of TIUM Staffing LLC and protected by United States and international copyright laws.\n\n### 6. Limitation of Liability\nTIUM shall not be liable for any indirect, incidental, punitive, or consequential damages resulting from the use or inability to use the platform, hiring outcomes, candidate performance, or employer decisions.\n\n### 7. Governing Law\nThese Terms are governed by and construed under the laws of the State of Texas, without regard to conflict of law principles. Any legal disputes shall be resolved exclusively in the state or federal courts located in Travis County, Austin, Texas.\n\n### 8. Modifications to Terms\nTIUM reserves the right to amend these Terms at any time. When modifications occur, the updated version date will be displayed and visitors will be prompted to review and re-accept the updated terms via our digital compliance modal."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "October 2026",
+    "intro": "TIUM Staffing LLC ('TIUM', 'we', 'our', or 'us') respects your privacy and is committed to protecting personal information collected from website visitors, employer clients, and job candidates.",
+    "sections": [
+      {
+        "id": "intro",
+        "title": "1. Introduction",
+        "content": "This Privacy Policy describes how we collect, process, maintain, and disclose information gathered through our website (https://tiumtech.com) and associated workforce advisory services."
+      },
+      {
+        "id": "collection",
+        "title": "2. Information We Collect",
+        "content": "We collect Employer/Client Inquiries (contact name, work email, phone, company, hiring needs), Candidate Information (resumes, work history, credentials, salary expectations), and Automated Technical Data (IP, browser type, analytics)."
+      },
+      {
+        "id": "use",
+        "title": "3. Use of Personal Information",
+        "content": "TIUM uses collected data strictly for evaluating candidate suitability, facilitating employer staffing agreements, communicating recruitment updates, and complying with labor regulations."
+      },
+      {
+        "id": "disclosure",
+        "title": "4. Confidentiality & Third-Party Disclosure",
+        "content": "We never sell, rent, or trade your personal data. Candidate profiles are shared only with prospective employer clients upon authorization."
+      },
+      {
+        "id": "rights",
+        "title": "5. Candidate Rights & Inquiries",
+        "content": "Candidates may request access to, correction of, or deletion of their personal records at any time by contacting support@tiumtech.com."
+      }
+    ]
+  }
+}

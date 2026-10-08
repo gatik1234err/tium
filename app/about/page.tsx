@@ -3,8 +3,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { values } from "@/data/values";
+import { getValues, getPages } from "@/lib/store";
 import { CheckCircle, ArrowRight } from "lucide-react";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -12,17 +14,20 @@ export const metadata: Metadata = {
     "Learn about TIUM Staffing — our mission, vision, values, and how we connect top-tier talent with ambitious enterprises nationwide.",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const [values, pages] = await Promise.all([getValues(), getPages()]);
+  const about = pages.about;
+
   return (
     <div className="pt-16 bg-white">
       {/* ── Page header ── */}
       <div className="border-b border-slate-100 bg-slate-50">
         <Container className="py-20">
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 font-mono mb-4">
-            About TIUM Staffing
+            {about.eyebrow || "About TIUM Staffing"}
           </p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 font-display leading-[1.05] max-w-3xl">
-            Connecting human potential with organizational purpose.
+            {about.title || "Connecting human potential with organizational purpose."}
           </h1>
         </Container>
       </div>
@@ -42,8 +47,8 @@ export default function AboutPage() {
             </div>
             {/* Overlay stat card */}
             <div className="absolute bottom-8 left-8 z-20 bg-white rounded-lg shadow-xl p-5 border border-slate-100">
-              <p className="text-3xl font-bold text-slate-900 font-display">98.4%</p>
-              <p className="text-sm text-slate-500 mt-0.5">Client SLA Fulfillment Rate</p>
+              <p className="text-3xl font-bold text-slate-900 font-display">{about.statNumber || "98.4%"}</p>
+              <p className="text-sm text-slate-500 mt-0.5">{about.statLabel || "Client SLA Fulfillment Rate"}</p>
             </div>
           </div>
 
@@ -51,21 +56,18 @@ export default function AboutPage() {
           <div className="py-16 px-0 lg:pl-16 space-y-8">
             <div>
               <h2 className="text-3xl font-bold text-slate-900 font-display leading-tight mb-4">
-                Redefining recruitment through consultative excellence.
+                {about.storyTitle || "Redefining recruitment through consultative excellence."}
               </h2>
               <div className="h-px w-12 bg-blue-600 mb-6" />
             </div>
 
             <p className="text-slate-600 leading-relaxed">
-              TIUM was established to solve a critical market disconnect: traditional staffing
-              agencies prioritize volume over precision, delivering resumes without evaluating
-              whether a candidate will thrive in high-stakes environments.
+              {about.storyParagraph1 ||
+                "TIUM was established to solve a critical market disconnect: traditional staffing agencies prioritize volume over precision, delivering resumes without evaluating whether a candidate will thrive in high-stakes environments."}
             </p>
             <p className="text-slate-600 leading-relaxed">
-              By embedding experienced recruiters who have worked in the industries they staff —
-              from software engineering and aerospace to critical care nursing and offshore
-              energy — we deliver candidates who are pre-vetted, culturally aligned, and
-              immediately productive.
+              {about.storyParagraph2 ||
+                "By embedding experienced recruiters who have worked in the industries they staff — from software engineering and aerospace to critical care nursing and offshore energy — we deliver candidates who are pre-vetted, culturally aligned, and immediately productive."}
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-2">
@@ -95,12 +97,12 @@ export default function AboutPage() {
               <p className="text-xs font-bold tracking-[0.2em] uppercase text-sky-300 font-mono">Our Mission</p>
             </div>
             <h3 className="text-2xl sm:text-3xl font-bold text-white font-display leading-tight">
-              Empower businesses with the right talent and individuals with the right opportunities.
+              {about.missionTitle || "Empower businesses with the right talent and individuals with the right opportunities."}
             </h3>
             <div className="h-0.5 w-12 bg-gradient-to-r from-sky-400 to-transparent" />
             <p className="text-blue-100/80 text-sm sm:text-base leading-relaxed">
-              We build genuine bridges between ambitious enterprises and exceptional professionals,
-              grounded in integrity, transparency, and relentless client dedication.
+              {about.missionDesc ||
+                "We build genuine bridges between ambitious enterprises and exceptional professionals, grounded in integrity, transparency, and relentless client dedication."}
             </p>
           </div>
           <div className="space-y-5">
@@ -109,12 +111,12 @@ export default function AboutPage() {
               <p className="text-xs font-bold tracking-[0.2em] uppercase text-sky-300 font-mono">Our Vision</p>
             </div>
             <h3 className="text-2xl sm:text-3xl font-bold text-white font-display leading-tight">
-              A future where talent and opportunity converge seamlessly.
+              {about.visionTitle || "A future where talent and opportunity converge seamlessly."}
             </h3>
             <div className="h-0.5 w-12 bg-gradient-to-r from-blue-400 to-transparent" />
             <p className="text-blue-100/80 text-sm sm:text-base leading-relaxed">
-              We envision a workforce ecosystem free from friction — powered by smart technology,
-              authentic transparency, and advisors who have done the work themselves.
+              {about.visionDesc ||
+                "We envision a workforce ecosystem free from friction — powered by smart technology, authentic transparency, and advisors who have done the work themselves."}
             </p>
           </div>
         </Container>

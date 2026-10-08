@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { CheckCircle2, AlertCircle } from "lucide-react";
+import { CheckCircle2, AlertCircle, FileText } from "lucide-react";
 
 export function ContactForm() {
   const searchParams = useSearchParams();
@@ -20,6 +21,7 @@ export function ContactForm() {
     message: "",
   });
 
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -41,6 +43,13 @@ export function ContactForm() {
 
   const intentOptions = ["Staffing", "RPO", "Recruitment", "Career Opportunity"];
 
+  const handleOpenTermsModal = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("tium_open_terms_modal"));
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName.trim() || !formData.email.trim() || !formData.message.trim()) {
@@ -48,9 +57,27 @@ export function ContactForm() {
       setErrorMessage("Please fill in all required fields (Name, Email, and Message).");
       return;
     }
+    if (!agreedToTerms) {
+      setStatus("error");
+      setErrorMessage("Please review and agree to the Terms & Conditions before sending your message.");
+      return;
+    }
+
     setStatus("submitting");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      const res = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "contact",
+          ...formData,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to submit inquiry");
+      }
+
       setStatus("success");
     } catch {
       setStatus("error");
@@ -81,6 +108,7 @@ export function ContactForm() {
             onClick={() => {
               setStatus("idle");
               setFormData({ fullName: "", email: "", phone: "", company: "", intent: "Staffing", message: "" });
+              setAgreedToTerms(false);
             }}
             className="text-xs font-semibold text-blue-600 hover:text-blue-700 underline"
           >
@@ -114,7 +142,8 @@ export function ContactForm() {
             Full Name <span className="text-blue-600">*</span>
           </label>
           <input
-            type="text" required placeholder="Jane Doe"
+            type="text" required
+            placeholder="Jane Doe"
             value={formData.fullName}
             onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
             className={inputClass}
@@ -122,10 +151,11 @@ export function ContactForm() {
         </div>
         <div>
           <label className={labelClass}>
-            Work Email <span className="text-blue-600">*</span>
+            Business Email <span className="text-blue-600">*</span>
           </label>
           <input
-            type="email" required placeholder="jane@company.com"
+            type="email" required
+            placeholder="jane@company.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             className={inputClass}
@@ -138,7 +168,8 @@ export function ContactForm() {
         <div>
           <label className={labelClass}>Phone Number</label>
           <input
-            type="tel" placeholder="+1 (555) 000-0000"
+            type="tel"
+            placeholder="+1 (555) 000-0000"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             className={inputClass}
@@ -147,7 +178,8 @@ export function ContactForm() {
         <div>
           <label className={labelClass}>Company / Organization</label>
           <input
-            type="text" placeholder="Acme Corporation"
+            type="text"
+            placeholder="Acme Corp"
             value={formData.company}
             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
             className={inputClass}
@@ -155,7 +187,7 @@ export function ContactForm() {
         </div>
       </div>
 
-      {/* Row 3: Intent Selector */}
+      {/* Row 3: Intent */}
       <div>
         <label className={labelClass}>
           I&apos;m looking for <span className="text-blue-600">*</span>
@@ -191,6 +223,33 @@ export function ContactForm() {
         />
       </div>
 
+      {/* Terms & Conditions Checkbox */}
+      <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
+        <label className="flex items-start gap-3 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            checked={agreedToTerms}
+            onChange={(e) => setAgreedToTerms(e.target.checked)}
+            className="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+          />
+          <span className="text-xs text-slate-700 leading-relaxed">
+            I agree to TIUM&apos;s{" "}
+            <button
+              type="button"
+              onClick={handleOpenTermsModal}
+              className="text-blue-600 font-semibold hover:underline inline-flex items-center gap-0.5"
+            >
+              Terms and Conditions
+            </button>{" "}
+            and{" "}
+            <Link href="/privacy" className="text-blue-600 font-semibold hover:underline">
+              Privacy Policy
+            </Link>
+            . <span className="text-blue-600">*</span>
+          </span>
+        </label>
+      </div>
+
       <Button
         type="submit" variant="primary" size="lg"
         disabled={status === "submitting"}
@@ -202,7 +261,7 @@ export function ContactForm() {
 
       <div className="text-center text-[11px] text-slate-400">
         By submitting, you agree to our confidential handling of your data in accordance with our{" "}
-        <a href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</a>.
+        <Link href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</Link>.
       </div>
     </form>
   );

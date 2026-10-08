@@ -1,0 +1,57 @@
+[
+  {
+    "number": "01",
+    "title": "Excellence",
+    "tagline": "Uncompromising standards in every candidate and client engagement.",
+    "description": "We believe that acceptable is never enough. We set benchmark standards for sourcing accuracy, candidate vetting, and operational execution, ensuring every placement creates sustained value.",
+    "points": [
+      "Rigorous multi-stage candidate vetting and skills assessment",
+      "Continuous optimization of hiring timeframes and quality metrics",
+      "Dedication to exceeding both employer and candidate expectations"
+    ]
+  },
+  {
+    "number": "02",
+    "title": "Integrity",
+    "tagline": "Transparency, radical honesty, and ethical leadership in every deal.",
+    "description": "Trust is our most vital asset. We provide clear, honest guidance to both employers and candidates, maintaining full transparency regarding compensation, role scopes, and timelines.",
+    "points": [
+      "Open, candid communication without hidden fees or ambiguous terms",
+      "Strict confidentiality for sensitive executive and candidate searches",
+      "Ethical recruitment practices prioritizing long-term career growth"
+    ]
+  },
+  {
+    "number": "03",
+    "title": "Client-Centric Approach",
+    "tagline": "Customizing solutions around your unique culture, goals, and constraints.",
+    "description": "No two companies share the same DNA. We invest time to understand your organizational culture, project constraints, and strategic roadmap, formulating bespoke talent strategies that match your vision.",
+    "points": [
+      "Dedicated account teams immersed in your corporate culture",
+      "Flexible commercial models (RPO, contingent, direct hire, retained)",
+      "Proactive post-placement follow-up ensuring seamless onboarding"
+    ]
+  },
+  {
+    "number": "04",
+    "title": "Innovation",
+    "tagline": "Harnessing cutting-edge sourcing intelligence and agile workflows.",
+    "description": "Staffing cannot rely on legacy methods. We leverage AI-assisted semantic talent intelligence, predictive pipeline modeling, and modern collaboration tools to identify top performers before competitors do.",
+    "points": [
+      "Proprietary talent mapping across passive industry communities",
+      "Modern applicant tracking and rapid candidate-matching technology",
+      "Data-driven compensation benchmarking and market insights"
+    ]
+  },
+  {
+    "number": "05",
+    "title": "Collaboration",
+    "tagline": "Partnering as an authentic extension of your internal talent team.",
+    "description": "We operate not as transactional vendors, but as strategic workforce advisors. We work alongside internal hiring managers and HR teams to achieve shared organizational milestones.",
+    "points": [
+      "Bi-weekly strategic syncs and transparent SLA dashboard reporting",
+      "Collaborative interview rubric creation and candidate calibration",
+      "Shared accountability for quality of hire and team retention"
+    ]
+  }
+]

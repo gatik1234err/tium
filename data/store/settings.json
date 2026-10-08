@@ -1,0 +1,17 @@
+{
+  "companyName": "TIUM Staffing LLC",
+  "tagline": "Connecting human potential with organizational purpose",
+  "phone": "+1 (307) 529 0201",
+  "email": "support@tiumtech.com",
+  "address": "5900 Balcone Dr STE 100, Austin, TX 78731",
+  "websiteUrl": "https://tiumtech.com",
+  "socials": {
+    "linkedin": "https://www.linkedin.com/company/tium",
+    "twitter": "https://twitter.com/tiumstaffing",
+    "github": "https://github.com/tium"
+  },
+  "admin": {
+    "username": "admin@tiumtech.com",
+    "passwordHash": "admin123"
+  }
+}

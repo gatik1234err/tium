@@ -1,0 +1,392 @@
+[
+  {
+    "id": "rpo",
+    "number": "01",
+    "title": "Recruitment Process Outsourcing",
+    "shortTitle": "RPO",
+    "slug": "rpo",
+    "tagline": "End-to-end recruitment operations built to scale with enterprise velocity.",
+    "description": "Comprehensive recruitment operations and sourcing infrastructure designed for organizations seeking to augment or outsource critical talent acquisition functions.",
+    "fullOverview": "TIUM's Recruitment Process Outsourcing (RPO) delivers enterprise-grade recruiting machinery without the internal overhead. We embed seasoned talent strategists, advanced ATS integrations, and active sourcing pipelines directly into your operational workflow. Whether scaling a 50-person engineering hub or continuous high-volume clinical hires, our RPO model adapts dynamically to demand curves while driving down cost-per-hire and time-to-productivity.",
+    "benefits": [
+      "Up to 45% reduction in average hiring cycle duration",
+      "Seamless integration with existing enterprise HRIS & ATS tech stacks",
+      "Dedicated talent partners immersed in your employer brand identity",
+      "Transparent metric reporting with SLAs covering time-to-fill and candidate quality"
+    ],
+    "capabilities": [
+      "Full Lifecycle Recruitment",
+      "Enterprise Talent Pipeline Cultivation",
+      "Employer Branding & Market Positioning",
+      "DE&I Sourcing Strategies",
+      "Onboarding Workflow Streamlining"
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": "Discovery & Alignment",
+        "desc": "Audit existing recruiting workflows, establish SLAs, and integrate ATS pipelines."
+      },
+      {
+        "step": "02",
+        "title": "Talent Engine Activation",
+        "desc": "Deploy dedicated recruiters and targeted outreach campaigns."
+      },
+      {
+        "step": "03",
+        "title": "Screening & Vetting",
+        "desc": "Multi-tiered technical, cultural, and credential evaluations."
+      },
+      {
+        "step": "04",
+        "title": "Offer & Onboarding",
+        "desc": "Negotiation advisory, compliance checks, and seamless start-day integration."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Average Time-to-Fill Reduction",
+        "value": "42%"
+      },
+      {
+        "label": "Client SLA Compliance",
+        "value": "98.4%"
+      },
+      {
+        "label": "Offer Acceptance Rate",
+        "value": "91%"
+      }
+    ],
+    "roles": [
+      "Technical Recruiters",
+      "Talent Sourcers",
+      "Hiring Operations Leads",
+      "Executive Search Partners"
+    ]
+  },
+  {
+    "id": "contingent-staffing",
+    "number": "02",
+    "title": "Contingent Staffing",
+    "shortTitle": "Contingent Staffing",
+    "slug": "contingent-staffing",
+    "tagline": "Agile, high-caliber talent deployed rapidly to meet changing operational demands.",
+    "description": "Flexible workforce capacity engineered for peak cycles, unexpected surges, and specialized project timelines across technical and operational domains.",
+    "fullOverview": "In modern markets, flexibility is an indispensable competitive asset. TIUM's Contingent Staffing practice empowers organizations to scale up or contract their personnel with zero friction. We maintain pre-screened rosters of specialized practitioners across engineering, healthcare, energy, and operations who can step into high-impact environments on short notice.",
+    "benefits": [
+      "Rapid deployment of pre-qualified professionals within 48–72 hours",
+      "Zero long-term balance sheet liabilities or fixed payroll overhead",
+      "Rigorous background verification, credentialing, and drug screening",
+      "Flexible transition options from contingent to direct hire if desired"
+    ],
+    "capabilities": [
+      "Short-Term Surge Staffing",
+      "Project-Specific Specialist Teams",
+      "Leave of Absence Coverage",
+      "Contingent-to-Perm Conversion Paths",
+      "Complete Payroll & Workers' Comp Administration"
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": "Requirement Intake",
+        "desc": "Deep dive into project scope, shift requirements, and skill matrices."
+      },
+      {
+        "step": "02",
+        "title": "Candidate Matching",
+        "desc": "Instant matching against our active pre-cleared talent pool."
+      },
+      {
+        "step": "03",
+        "title": "Rapid Deployment",
+        "desc": "Zero-delay compliance clearance and immediate day-one onboarding."
+      },
+      {
+        "step": "04",
+        "title": "Ongoing Oversight",
+        "desc": "Regular performance check-ins, timekeeping, and payroll management."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Deployment Speed",
+        "value": "< 72 hrs"
+      },
+      {
+        "label": "Candidate Retention Rate",
+        "value": "94%"
+      },
+      {
+        "label": "Compliance Pass Rate",
+        "value": "100%"
+      }
+    ],
+    "roles": [
+      "Software Developers & QA",
+      "Clinical Support Specialists",
+      "Field Technicians & Operators",
+      "Project Coordinators"
+    ]
+  },
+  {
+    "id": "direct-hire",
+    "number": "03",
+    "title": "Direct Hire Recruitment",
+    "shortTitle": "Direct Hire",
+    "slug": "direct-hire",
+    "tagline": "Permanent leadership and specialist placements that define institutional culture.",
+    "description": "Retained and contingency permanent placement services built to secure mission-critical leaders, innovators, and pillars for your company's future.",
+    "fullOverview": "Direct hire requires far more than matching keywords on resumes. It demands a holistic evaluation of leadership style, intellectual curiosity, cultural synergy, and long-term organizational trajectory. TIUM executes proactive, consultative headhunting that reaches passive leaders who aren't browsing job boards.",
+    "benefits": [
+      "Comprehensive candidate warranty and placement guarantees",
+      "Access to passive top-tier industry talent not in the open market",
+      "Multidimensional vetting including behavioral and competency benchmarks",
+      "Compensation benchmarking to ensure competitive, winning offers"
+    ],
+    "capabilities": [
+      "Executive & C-Suite Search",
+      "Principal & Staff Engineering Placements",
+      "Department Head & Director Search",
+      "Confidential Replacement Searches",
+      "Comprehensive Background & Reference Audits"
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": "Profile Architecture",
+        "desc": "Formulate rigorous ideal candidate profiles and value propositions."
+      },
+      {
+        "step": "02",
+        "title": "Targeted Headhunting",
+        "desc": "Proactive, discreet outreach to elite passive performers."
+      },
+      {
+        "step": "03",
+        "title": "Deep-Dive Assessment",
+        "desc": "Structured behavioral, leadership, and technical evaluations."
+      },
+      {
+        "step": "04",
+        "title": "Offer Brokerage",
+        "desc": "Navigating counter-offers, equity packages, and seamless transitions."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "1-Year Retention Rate",
+        "value": "96.2%"
+      },
+      {
+        "label": "Average Time-to-Shortlist",
+        "value": "10 days"
+      },
+      {
+        "label": "Client Satisfaction",
+        "value": "99%"
+      }
+    ],
+    "roles": [
+      "VPs & Engineering Directors",
+      "Lead Architects & Data Scientists",
+      "Chief Medical Officers & Nursing Directors",
+      "Operations & Supply Chain Executives"
+    ]
+  },
+  {
+    "id": "contract-hire",
+    "number": "04",
+    "title": "Contract Hire Solutions",
+    "shortTitle": "Contract Hire",
+    "slug": "contract-hire",
+    "tagline": "Specialized subject-matter experts for fixed-scope, high-stakes deliverables.",
+    "description": "Targeted contract engagements providing niche technical mastery for digital transformations, regulatory compliance, plant turnarounds, and complex system implementations.",
+    "fullOverview": "When organizations undertake complex initiatives—such as an enterprise ERP migration, regulatory FDA re-certification, or aerospace flight software validation—they require niche expertise that may not be needed permanently. TIUM's Contract Hire service connects you with elite consultants with proven track records in high-stakes environments.",
+    "benefits": [
+      "Precise skill-to-scope matching for immediate project acceleration",
+      "Clear financial predictability with fixed or capped hourly models",
+      "Mitigated employment liability and streamlined 1099/W2 compliance",
+      "Ability to extend or pivot contract parameters as milestones evolve"
+    ],
+    "capabilities": [
+      "System Implementation Consultants",
+      "Regulatory Audit & Quality Specialists",
+      "Turnaround & Shutdown Engineering Teams",
+      "Interim Management & Leadership",
+      "Vendor Management Integration"
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": "Scope Calibration",
+        "desc": "Define technical milestones, timeline constraints, and deliverables."
+      },
+      {
+        "step": "02",
+        "title": "Specialist Identification",
+        "desc": "Identify consultants who have solved the exact challenge before."
+      },
+      {
+        "step": "03",
+        "title": "Contract Execution",
+        "desc": "Fast-track master service agreements and security clearance."
+      },
+      {
+        "step": "04",
+        "title": "Milestone Delivery",
+        "desc": "Active project liaison to maintain velocity and outcome quality."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Milestone Completion Rate",
+        "value": "97%"
+      },
+      {
+        "label": "Contract Extension Rate",
+        "value": "78%"
+      },
+      {
+        "label": "Specialist Skill Match",
+        "value": "99%"
+      }
+    ],
+    "roles": [
+      "Cloud Migration Architects",
+      "Regulatory Affairs Specialists",
+      "Aerospace Systems Integrators",
+      "Petrochemical Plant Engineers"
+    ]
+  },
+  {
+    "id": "lead-generation",
+    "number": "05",
+    "title": "Talent & Business Lead Generation",
+    "shortTitle": "Lead Generation",
+    "slug": "lead-generation",
+    "tagline": "Strategic market intelligence and opportunity pipelines driving commercial growth.",
+    "description": "Bespoke pipeline generation strategies that identify hiring demand signals, commercial opportunities, and emerging talent hubs in your target markets.",
+    "fullOverview": "Sustained organizational growth requires continuous visibility into market demand and talent availability. TIUM blends algorithmic data analytics with human research to identify high-potential enterprise leads, upcoming project tenders, and organizational expansion signals before they become public knowledge.",
+    "benefits": [
+      "Early intelligence on enterprise hiring ramp-ups and tenders",
+      "Custom market mapping across niche geographic regions",
+      "High-intent outbound prospect nurturing and qualification",
+      "Enriched CRM databases with verified decision-maker contacts"
+    ],
+    "capabilities": [
+      "B2B Talent Demand Mapping",
+      "Account-Based Outbound Campaigns",
+      "Executive Contact Verification",
+      "Competitive Talent Intelligence",
+      "Market Expansion Sizing"
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": "Target Persona Definition",
+        "desc": "Establish ICPs (Ideal Customer Profiles) and territory bounds."
+      },
+      {
+        "step": "02",
+        "title": "Signal Scanning",
+        "desc": "Analyze funding rounds, expansion permits, and job requisitions."
+      },
+      {
+        "step": "03",
+        "title": "Multi-Touch Engagement",
+        "desc": "Professional, value-driven outreach to C-level decision-makers."
+      },
+      {
+        "step": "04",
+        "title": "Qualified Hand-Off",
+        "desc": "Deliver vetted, warm meetings directly into your sales calendar."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Lead Qualification Rate",
+        "value": "88%"
+      },
+      {
+        "label": "Data Accuracy Guarantee",
+        "value": "99%"
+      },
+      {
+        "label": "Meeting Show-up Rate",
+        "value": "92%"
+      }
+    ],
+    "roles": [
+      "Market Research Analysts",
+      "B2B Demand Generation Specialists",
+      "Account Sourcing Partners",
+      "Intelligence Directors"
+    ]
+  },
+  {
+    "id": "candidate-sourcing",
+    "number": "06",
+    "title": "Candidate Sourcing & Pipelining",
+    "shortTitle": "Candidate Sourcing",
+    "slug": "candidate-sourcing",
+    "tagline": "Proactive talent reservoirs built ahead of your critical hiring curve.",
+    "description": "Dedicated candidate research, talent pool nurturing, and diversity pipelining that ensures you never hire from a position of desperation.",
+    "fullOverview": "The best time to source exceptional talent is before the vacancy occurs. TIUM's Candidate Sourcing service continuously engages, assesses, and maintains active dialogues with top performers across Information Technology, Healthcare, Automotive, Energy, Aerospace, and Corporate Management.",
+    "benefits": [
+      "Eliminate reactive hiring stress with on-demand candidate pipelines",
+      "Pre-screened, warm talent ready for immediate interview stages",
+      "Extensive reach into underrepresented candidate demographics",
+      "Proprietary talent pools exclusively dedicated to your enterprise"
+    ],
+    "capabilities": [
+      "Custom Boolean & Semantic Talent Mapping",
+      "Diversity, Equity & Inclusion Pipelines",
+      "Passive Candidate Cultivation",
+      "Competitive Benchmarking & Salary Surveys",
+      "Warm Pipeline Transitioning"
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": "Skill Matrix Formulation",
+        "desc": "Define precise technical stack, soft skills, and credentials."
+      },
+      {
+        "step": "02",
+        "title": "Deep Market Scraping",
+        "desc": "Identify top 5% performers across direct and adjacent competitors."
+      },
+      {
+        "step": "03",
+        "title": "Relationship Cultivation",
+        "desc": "Sustain ongoing touchpoints and gauge career readiness."
+      },
+      {
+        "step": "04",
+        "title": "Seamless Delivery",
+        "desc": "Transfer interview-ready candidates immediately upon job release."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Passive Candidate Conversion",
+        "value": "3.4x"
+      },
+      {
+        "label": "Pipeline Readiness",
+        "value": "Instant"
+      },
+      {
+        "label": "Diversity Representation",
+        "value": "> 40%"
+      }
+    ],
+    "roles": [
+      "Senior Full-Stack Engineers",
+      "Biotech Research Scientists",
+      "Automotive Safety Engineers",
+      "Senior Financial Controllers"
+    ]
+  }
+]
