@@ -69,7 +69,12 @@ export function CookieConsent({ initialSettings }: CookieConsentProps) {
       marketing: true,
       timestamp: new Date().toISOString(),
     };
-    localStorage.setItem("tium_cookie_consent", JSON.stringify(consent));
+    try {
+      localStorage.setItem("tium_cookie_consent", JSON.stringify(consent));
+      document.cookie = "tium_cookie_consent=all; path=/; max-age=31536000; SameSite=Lax";
+    } catch {
+      // ignore
+    }
     setVisible(false);
     setShowPreferences(false);
   };
@@ -81,7 +86,12 @@ export function CookieConsent({ initialSettings }: CookieConsentProps) {
       marketing: false,
       timestamp: new Date().toISOString(),
     };
-    localStorage.setItem("tium_cookie_consent", JSON.stringify(consent));
+    try {
+      localStorage.setItem("tium_cookie_consent", JSON.stringify(consent));
+      document.cookie = "tium_cookie_consent=necessary; path=/; max-age=31536000; SameSite=Lax";
+    } catch {
+      // ignore
+    }
     setVisible(false);
     setShowPreferences(false);
   };
@@ -93,9 +103,20 @@ export function CookieConsent({ initialSettings }: CookieConsentProps) {
       marketing: marketingAllowed,
       timestamp: new Date().toISOString(),
     };
-    localStorage.setItem("tium_cookie_consent", JSON.stringify(consent));
+    try {
+      localStorage.setItem("tium_cookie_consent", JSON.stringify(consent));
+      document.cookie = `tium_cookie_consent=${analyticsAllowed ? "analytics" : ""}_${marketingAllowed ? "marketing" : ""}; path=/; max-age=31536000; SameSite=Lax`;
+    } catch {
+      // ignore
+    }
     setVisible(false);
     setShowPreferences(false);
+  };
+
+  const openTermsModal = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("tium_open_terms_modal"));
+    }
   };
 
   if (!visible || !settings || !settings.enabled) return null;
@@ -122,7 +143,15 @@ export function CookieConsent({ initialSettings }: CookieConsentProps) {
                       className="text-blue-400 underline underline-offset-2 hover:text-blue-300 transition-colors"
                     >
                       Privacy Policy
-                    </Link>
+                    </Link>{" "}
+                    &bull;{" "}
+                    <button
+                      type="button"
+                      onClick={openTermsModal}
+                      className="text-blue-400 underline underline-offset-2 hover:text-blue-300 transition-colors cursor-pointer"
+                    >
+                      Terms & Conditions
+                    </button>
                   </p>
                 </div>
               </div>

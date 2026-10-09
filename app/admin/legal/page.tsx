@@ -91,16 +91,19 @@ export default function AdminLegalPage() {
           </p>
         </div>
 
-        <div className="flex items-center gap-3 shrink-0 self-start sm:self-auto">
+        <div className="flex flex-wrap items-center gap-3 shrink-0 self-start sm:self-auto">
           {activeTab === "terms" && (
-            <button
-              type="button"
-              onClick={testPopoutModal}
-              className="px-3.5 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors flex items-center gap-1.5 cursor-pointer"
-            >
-              <Eye className="w-3.5 h-3.5 text-blue-400" />
-              Preview Terms Popout
-            </button>
+            <>
+              <a
+                href="/?preview_terms=true"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3.5 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors flex items-center gap-1.5 cursor-pointer"
+              >
+                <Eye className="w-3.5 h-3.5 text-blue-400" />
+                Test Popout on Live Site ↗
+              </a>
+            </>
           )}
           {activeTab === "cookies" && (
             <button

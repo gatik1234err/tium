@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { FileText, CheckCircle2, ShieldCheck, X, AlertCircle } from "lucide-react";
+import { FileText, CheckCircle2, ShieldCheck, X } from "lucide-react";
 import type { TermsSettings } from "@/lib/types";
+
+const STORAGE_KEY = "tium_terms_accepted_version";
+const STORAGE_DATE_KEY = "tium_terms_accepted_date";
 
 interface TermsModalProps {
   initialSettings?: TermsSettings;
@@ -14,70 +17,146 @@ export function TermsModal({ initialSettings }: TermsModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [hasScrolledBottom, setHasScrolledBottom] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Check cache and evaluate if modal should appear
+  const checkCacheAndDisplay = (termsConfig: TermsSettings) => {
+    if (!termsConfig.enabled) {
+      setIsOpen(false);
+      return;
+    }
+
+    try {
+      // Check query param override for testing
+      if (typeof window !== "undefined") {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("preview_terms") === "true" || urlParams.get("terms_test") === "true") {
+          setTimeout(() => setIsOpen(true), 150);
+          return;
+        }
+      }
+
+      const cachedVersion = localStorage.getItem(STORAGE_KEY);
+      const cookieMatches = document.cookie.includes(
+        `tium_terms_accepted_v${encodeURIComponent(termsConfig.version)}=true`
+      );
+
+      const isCached = cachedVersion === termsConfig.version || cookieMatches;
+
+      if (termsConfig.modalTrigger === "always") {
+        // Show once per browser session unless already agreed in this session
+        const sessionAgreed = sessionStorage.getItem("tium_terms_session_agreed");
+        if (sessionAgreed !== termsConfig.version) {
+          setTimeout(() => setIsOpen(true), 200);
+        }
+      } else if (termsConfig.modalTrigger === "first_visit" || !termsConfig.modalTrigger) {
+        // Standard first visit: if not cached or version updated, pop out!
+        if (!isCached) {
+          setTimeout(() => setIsOpen(true), 200);
+        }
+      }
+    } catch {
+      // Fallback if localStorage is disabled
+      setIsOpen(true);
+    }
+  };
 
   useEffect(() => {
-    // If not passed initially, fetch from API
     if (!initialSettings) {
       fetch("/api/legal")
         .then((res) => res.json())
         .then((data) => {
           if (data?.terms) {
             setSettings(data.terms);
-            checkTermsConsent(data.terms);
+            checkCacheAndDisplay(data.terms);
           }
         })
-        .catch((err) => console.error("Failed to load terms settings:", err));
+        .catch((err) => console.error("Failed to load terms:", err));
     } else {
-      checkTermsConsent(initialSettings);
+      checkCacheAndDisplay(initialSettings);
     }
 
-    // Event listener to open modal on-demand
+    // Event listener to open modal on-demand (e.g. from footer link or admin preview)
     const handleOpen = () => {
       setIsOpen(true);
+      setAgreed(false);
     };
-    window.addEventListener("tium_open_terms_modal", handleOpen);
 
-    // Also attach to window for convenient programmatic access
+    // Event listener to reset cache and trigger modal
+    const handleResetCache = () => {
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(STORAGE_DATE_KEY);
+        sessionStorage.removeItem("tium_terms_session_agreed");
+        document.cookie = `tium_terms_accepted_v${encodeURIComponent(settings?.version || "")}=; max-age=0; path=/;`;
+      } catch {
+        // ignore
+      }
+      setAgreed(false);
+      setIsOpen(true);
+    };
+
+    window.addEventListener("tium_open_terms_modal", handleOpen);
+    window.addEventListener("tium_reset_terms_cache", handleResetCache);
+
     if (typeof window !== "undefined") {
-      (window as unknown as { openTermsModal?: () => void }).openTermsModal = () => setIsOpen(true);
+      (window as unknown as { openTermsModal?: () => void }).openTermsModal = handleOpen;
+      (window as unknown as { resetTermsCache?: () => void }).resetTermsCache = handleResetCache;
     }
 
     return () => {
       window.removeEventListener("tium_open_terms_modal", handleOpen);
+      window.removeEventListener("tium_reset_terms_cache", handleResetCache);
     };
-  }, [initialSettings]);
+  }, [initialSettings, settings?.version]);
 
-  const checkTermsConsent = (termsConfig: TermsSettings) => {
-    if (!termsConfig.enabled) {
-      setIsOpen(false);
-      return;
+  // Lock background scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
     }
-
-    const acceptedVersion = localStorage.getItem("tium_terms_accepted_version");
-
-    // If modal trigger is first_visit or always, and current version is not accepted
-    if (termsConfig.modalTrigger === "first_visit" || termsConfig.modalTrigger === "always") {
-      if (acceptedVersion !== termsConfig.version) {
-        // Pop out after a brief moment
-        const timer = setTimeout(() => {
-          setIsOpen(true);
-        }, 800);
-        return () => clearTimeout(timer);
-      }
-    }
-  };
+  }, [isOpen]);
 
   const handleAgree = () => {
     if (!agreed || !settings) return;
-    localStorage.setItem("tium_terms_accepted_version", settings.version);
-    localStorage.setItem("tium_terms_accepted_date", new Date().toISOString());
+
+    try {
+      // 1. Save in localStorage cache
+      localStorage.setItem(STORAGE_KEY, settings.version);
+      localStorage.setItem(STORAGE_DATE_KEY, new Date().toISOString());
+
+      // 2. Save in sessionStorage cache
+      sessionStorage.setItem("tium_terms_session_agreed", settings.version);
+
+      // 3. Save in cookie cache (1 year persistence)
+      document.cookie = `tium_terms_accepted_v${encodeURIComponent(
+        settings.version
+      )}=true; path=/; max-age=31536000; SameSite=Lax`;
+    } catch (e) {
+      console.warn("Storage write error:", e);
+    }
+
     setIsOpen(false);
-    window.dispatchEvent(
-      new CustomEvent("tium_terms_accepted", { detail: { version: settings.version } })
-    );
+
+    // Notify listeners
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("tium_terms_accepted", { detail: { version: settings.version } })
+      );
+    }
   };
 
   const handleDecline = () => {
+    // Dismiss for the current session without caching permanent acceptance
+    try {
+      sessionStorage.setItem("tium_terms_session_declined", "true");
+    } catch {
+      // ignore
+    }
     setIsOpen(false);
   };
 
@@ -91,41 +170,46 @@ export function TermsModal({ initialSettings }: TermsModalProps) {
   if (!isOpen || !settings || !settings.enabled) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/75 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
-      <div
-        className="bg-white border border-slate-200 rounded-2xl shadow-2xl max-w-2xl w-full flex flex-col overflow-hidden max-h-[90vh] text-slate-800 animate-in zoom-in-95 duration-200"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="terms-modal-title"
-      >
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md transition-all duration-300 animate-in fade-in"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="terms-modal-title"
+    >
+      <div className="bg-white border border-slate-200/90 rounded-2xl shadow-2xl max-w-2xl w-full flex flex-col overflow-hidden max-h-[92vh] sm:max-h-[88vh] text-slate-800 transition-all duration-300 animate-in zoom-in-95">
         {/* Modal Header */}
-        <div className="p-6 border-b border-slate-100 bg-slate-50/80 flex items-start justify-between gap-4">
+        <div className="p-5 sm:p-6 border-b border-slate-100 bg-gradient-to-r from-blue-50/70 via-slate-50/80 to-indigo-50/70 flex items-start justify-between gap-4">
           <div className="flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 shrink-0 mt-0.5">
+            <div className="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-600/20 flex items-center justify-center text-blue-600 shrink-0 mt-0.5">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded border border-blue-200">
                   Version {settings.version}
                 </span>
                 <span className="text-[11px] text-slate-500 font-mono">
                   Updated: {settings.lastUpdated}
                 </span>
+                <span className="text-[10px] text-emerald-700 font-mono bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  Compliance Required
+                </span>
               </div>
-              <h2 id="terms-modal-title" className="text-xl font-bold font-display text-slate-900">
+              <h2 id="terms-modal-title" className="text-lg sm:text-xl font-bold font-display text-slate-900 leading-tight">
                 {settings.title}
               </h2>
-              <p className="text-xs text-slate-500 mt-1">
+              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
                 {settings.subtitle}
               </p>
             </div>
           </div>
+
           <button
             type="button"
             onClick={handleDecline}
-            className="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
-            aria-label="Close"
+            className="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-200/50 transition-colors"
+            aria-label="Decline and close"
+            title="Decline and close"
           >
             <X className="w-5 h-5" />
           </button>
@@ -133,21 +217,22 @@ export function TermsModal({ initialSettings }: TermsModalProps) {
 
         {/* Modal Body - Scrollable Terms Content */}
         <div
+          ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="p-6 overflow-y-auto flex-1 text-xs sm:text-sm text-slate-600 space-y-4 leading-relaxed max-h-[460px] bg-slate-50/30"
+          className="p-5 sm:p-6 overflow-y-auto flex-1 text-xs sm:text-sm text-slate-600 space-y-3.5 leading-relaxed max-h-[420px] bg-slate-50/40"
         >
-          <div className="prose prose-sm max-w-none prose-headings:font-display prose-headings:text-slate-900 prose-headings:font-semibold prose-a:text-blue-600">
+          <div className="prose prose-sm max-w-none text-slate-700">
             {settings.content.split("\n\n").map((block, idx) => {
               if (block.startsWith("### ")) {
                 return (
-                  <h3 key={idx} className="text-sm font-bold text-slate-900 mt-4 mb-2">
+                  <h3 key={idx} className="text-sm sm:text-base font-bold text-slate-900 mt-4 mb-2 font-display">
                     {block.replace("### ", "")}
                   </h3>
                 );
               }
               if (block.startsWith("- ")) {
                 return (
-                  <ul key={idx} className="list-disc pl-5 space-y-1 text-slate-600 my-2">
+                  <ul key={idx} className="list-disc pl-5 space-y-1.5 text-slate-600 my-2">
                     {block.split("\n").map((item, itemIdx) => (
                       <li key={itemIdx}>{item.replace(/^- /, "")}</li>
                     ))}
@@ -155,7 +240,7 @@ export function TermsModal({ initialSettings }: TermsModalProps) {
                 );
               }
               return (
-                <p key={idx} className="text-slate-600 my-2">
+                <p key={idx} className="text-slate-600 my-2 leading-relaxed">
                   {block}
                 </p>
               );
@@ -163,41 +248,44 @@ export function TermsModal({ initialSettings }: TermsModalProps) {
           </div>
 
           {!hasScrolledBottom && (
-            <p className="text-[11px] text-slate-400 text-center italic pt-2">
-              (Scroll down to review full terms)
-            </p>
+            <div className="pt-2 text-center">
+              <span className="text-[11px] text-slate-400 font-mono italic bg-white/80 px-3 py-1 rounded-full border border-slate-200">
+                ↓ Scroll to review full terms before agreeing
+              </span>
+            </div>
           )}
         </div>
 
-        {/* Modal Footer with Checkbox & Agree Button */}
-        <div className="p-6 border-t border-slate-100 bg-white space-y-4">
-          <label className="flex items-start gap-3 cursor-pointer group select-none">
+        {/* Modal Footer with Agreement Checkbox & Buttons */}
+        <div className="p-5 sm:p-6 border-t border-slate-100 bg-white space-y-4">
+          <label className="flex items-start gap-3 cursor-pointer group select-none p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50/50 border border-slate-200 transition-colors">
             <input
               type="checkbox"
+              id="terms-agreement-checkbox"
               checked={agreed}
               onChange={(e) => setAgreed(e.target.checked)}
-              className="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+              className="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer shrink-0"
             />
-            <span className="text-xs sm:text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors">
+            <span className="text-xs sm:text-sm font-medium text-slate-700 group-hover:text-slate-900 leading-snug">
               {settings.checkboxLabel}
             </span>
           </label>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-1">
             <Link
               href="/terms"
               target="_blank"
-              className="text-xs text-blue-600 hover:text-blue-700 hover:underline flex items-center gap-1 font-medium order-2 sm:order-1"
+              className="text-xs text-blue-600 hover:text-blue-700 hover:underline flex items-center gap-1 font-medium justify-center sm:justify-start"
             >
               <FileText className="w-3.5 h-3.5" />
-              Open Full Terms in New Tab
+              Open Terms in Full Page ↗
             </Link>
 
-            <div className="flex items-center gap-2.5 w-full sm:w-auto justify-end order-1 sm:order-2">
+            <div className="flex items-center gap-2.5 justify-end">
               <button
                 type="button"
                 onClick={handleDecline}
-                className="px-4 py-2 text-xs font-medium rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+                className="px-4 py-2 text-xs font-medium rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
               >
                 {settings.declineButtonText || "Decline"}
               </button>
@@ -206,14 +294,14 @@ export function TermsModal({ initialSettings }: TermsModalProps) {
                 type="button"
                 onClick={handleAgree}
                 disabled={!agreed}
-                className={`px-5 py-2.5 text-xs font-semibold rounded-lg flex items-center gap-2 transition-all shadow-md ${
+                className={`px-5 py-2.5 text-xs font-semibold rounded-xl flex items-center justify-center gap-2 transition-all shadow-md ${
                   agreed
-                    ? "bg-blue-600 hover:bg-blue-500 text-white shadow-blue-600/30 cursor-pointer"
+                    ? "bg-blue-600 hover:bg-blue-500 text-white shadow-blue-600/30 cursor-pointer scale-[1.02] active:scale-[0.98]"
                     : "bg-slate-200 text-slate-400 cursor-not-allowed shadow-none"
                 }`}
               >
                 <CheckCircle2 className="w-4 h-4" />
-                {settings.agreeButtonText}
+                {settings.agreeButtonText || "I Agree & Continue"}
               </button>
             </div>
           </div>

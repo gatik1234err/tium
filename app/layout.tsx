@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { LegalProvider } from "@/components/legal/LegalProvider";
+import { getLegal } from "@/lib/store";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,15 +40,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const legalData = await getLegal().catch(() => null);
+
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen flex flex-col bg-white text-slate-900 antialiased selection:bg-blue-600 selection:text-white">
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />
-        <LegalProvider />
+        <LegalProvider
+          initialCookies={legalData?.cookies}
+          initialTerms={legalData?.terms}
+        />
       </body>
     </html>
   );
 }
+
