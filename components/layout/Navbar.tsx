@@ -27,6 +27,17 @@ export function Navbar() {
     setOpenDropdown(null);
   }, [pathname]);
 
+  const [logoUrl, setLogoUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/admin/settings")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data?.logoUrl) setLogoUrl(data.logoUrl);
+      })
+      .catch(() => {});
+  }, []);
+
   const navLinks = [
     { name: "About", href: "/about" },
     {
@@ -61,17 +72,24 @@ export function Navbar() {
         <Container className="flex items-center justify-between gap-8">
           {/* Logo */}
           <Link href="/" aria-label="TIUM Home" className="flex items-center gap-3 shrink-0">
-            <div className="w-9 h-9 rounded-lg btn-gradient-blue flex items-center justify-center shadow-sm">
-              <span className="text-white font-bold font-display tracking-tight text-lg leading-none">T</span>
-            </div>
-            <div>
-              <span className="block text-xl font-bold text-slate-900 font-display tracking-tight leading-none">
-                TIUM
-              </span>
-              <span className="block text-[10px] text-slate-400 uppercase tracking-[0.12em] font-mono leading-tight">
-                Staffing LLC
-              </span>
-            </div>
+            {logoUrl ? (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img src={logoUrl} alt="TIUM Staffing" className="h-9 w-auto max-w-[140px] object-contain" />
+            ) : (
+              <>
+                <div className="w-9 h-9 rounded-lg btn-gradient-blue flex items-center justify-center shadow-sm">
+                  <span className="text-white font-bold font-display tracking-tight text-lg leading-none">T</span>
+                </div>
+                <div>
+                  <span className="block text-xl font-bold text-slate-900 font-display tracking-tight leading-none">
+                    TIUM
+                  </span>
+                  <span className="block text-[10px] text-slate-400 uppercase tracking-[0.12em] font-mono leading-tight">
+                    Staffing LLC
+                  </span>
+                </div>
+              </>
+            )}
           </Link>
 
           {/* Desktop nav */}

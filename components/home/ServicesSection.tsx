@@ -3,12 +3,18 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { services } from "@/data/services";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { ServiceItem } from "@/lib/types";
 
-export function ServicesSection() {
+interface ServicesSectionProps {
+  services: ServiceItem[];
+}
+
+export function ServicesSection({ services }: ServicesSectionProps) {
   const [active, setActive] = useState(0);
+
+  if (!services || services.length === 0) return null;
 
   return (
     <section className="py-24 bg-white border-b border-slate-100">
@@ -90,18 +96,32 @@ export function ServicesSection() {
           {/* Preview panel — sticky */}
           <div className="hidden lg:block lg:col-span-5 lg:pl-12 border-l border-slate-100 pt-2">
             <div className="sticky top-28 space-y-6">
-              {/* Service image placeholder */}
-              <div className="img-placeholder rounded-lg aspect-video relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                  <div className="text-center">
-                    <p className="text-sm text-blue-700/60 font-medium">
-                      {services[active].shortTitle} illustration
-                    </p>
+              {/* Service image / custom image */}
+              <div className="rounded-xl aspect-video relative overflow-hidden bg-slate-900 border border-slate-200 shadow-lg">
+                {services[active].imageUrl ? (
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={services[active].imageUrl}
+                      alt={services[active].imageAlt || services[active].title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
+                  </>
+                ) : (
+                  <div className="img-placeholder rounded-lg h-full w-full">
+                    <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                      <div className="text-center">
+                        <p className="text-sm text-blue-700/60 font-medium">
+                          {services[active].shortTitle} illustration
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
                 {/* Service number overlay */}
                 <div className="absolute top-4 left-4 z-20">
-                  <span className="font-mono text-5xl font-bold text-blue-600/20 num-label">
+                  <span className="font-mono text-5xl font-bold text-blue-600/30 num-label">
                     {services[active].number}
                   </span>
                 </div>

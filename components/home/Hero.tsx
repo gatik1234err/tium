@@ -22,6 +22,8 @@ interface HeroProps {
     secondaryCtaText: string;
     secondaryCtaLink: string;
     stats?: { value: string; label: string }[];
+    imageUrl?: string;
+    imageAlt?: string;
   };
 }
 
@@ -79,18 +81,30 @@ export function Hero({ content }: HeroProps) {
           </div>
         </div>
 
-        {/* Right: Image placeholder + candidate card overlay */}
+        {/* Right: Image placeholder / Custom image + candidate card overlay */}
         <div className="lg:col-span-6 xl:col-span-7 relative min-h-[420px] lg:min-h-0">
-          {/* Main image placeholder */}
-          <div className="img-placeholder w-full h-full min-h-[420px] lg:min-h-[580px]">
-            {/* Subtle label on image */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
-              <div className="w-16 h-16 rounded-full border-2 border-blue-300/50 flex items-center justify-center mb-3">
-                <div className="w-8 h-8 rounded-full bg-blue-400/40" />
+          <div className="w-full h-full min-h-[420px] lg:min-h-[580px] rounded-2xl overflow-hidden relative border border-blue-100 shadow-2xl bg-slate-900">
+            {content?.imageUrl ? (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={content.imageUrl}
+                  alt={content.imageAlt || "TIUM Workforce & Recruitment"}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+              </>
+            ) : (
+              <div className="img-placeholder w-full h-full">
+                <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
+                  <div className="w-16 h-16 rounded-full border-2 border-blue-300/50 flex items-center justify-center mb-3">
+                    <div className="w-8 h-8 rounded-full bg-blue-400/40" />
+                  </div>
+                  <p className="text-sm text-blue-700/60 font-medium tracking-wide">Hero Image</p>
+                  <p className="text-xs text-blue-600/40 mt-0.5">Professional workforce photography</p>
+                </div>
               </div>
-              <p className="text-sm text-blue-700/60 font-medium tracking-wide">Hero Image</p>
-              <p className="text-xs text-blue-600/40 mt-0.5">Professional workforce photography</p>
-            </div>
+            )}
 
             {/* Floating candidate profile card */}
             <div className="absolute bottom-8 left-8 right-8 sm:right-auto sm:max-w-xs bg-white rounded-xl shadow-2xl p-5 border border-slate-100 z-20">

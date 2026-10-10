@@ -11,6 +11,7 @@ import {
   Award,
   HeartHandshake,
   FileText,
+  Image as ImageIcon,
   ShieldAlert,
   Inbox,
   Settings,
@@ -97,7 +98,8 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     { label: "Why TIUM", href: "/admin/reasons", icon: Award },
     { label: "Values & Mission", href: "/admin/values", icon: HeartHandshake },
     { label: "Page Content", href: "/admin/pages", icon: FileText },
-    { label: "Legal, Cookies & Terms", href: "/admin/legal", icon: ShieldAlert, highlight: true },
+    { label: "Media & Images", href: "/admin/media", icon: ImageIcon, highlight: true },
+    { label: "Legal, Cookies & Terms", href: "/admin/legal", icon: ShieldAlert },
     { label: "Inquiries & Leads", href: "/admin/inquiries", icon: Inbox },
     { label: "Settings & Backup", href: "/admin/settings", icon: Settings },
   ];

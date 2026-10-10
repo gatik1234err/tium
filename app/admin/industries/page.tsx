@@ -11,7 +11,9 @@ import {
   ExternalLink,
   Check,
   X,
+  AlertCircle,
 } from "lucide-react";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import type { IndustryItem } from "@/lib/types";
 
 export default function AdminIndustriesPage() {
@@ -290,6 +292,15 @@ export default function AdminIndustriesPage() {
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white"
                 />
               </div>
+
+              {/* Industry Image / Sector Photo Uploader */}
+              <ImageUploadField
+                label="Industry Sector Photo / Illustration"
+                description="Displays in the industry card on the homepage and detail header"
+                value={editingIndustry.imageUrl || ""}
+                onChange={(url) => setEditingIndustry({ ...editingIndustry, imageUrl: url })}
+                aspectHint="Recommended: 16:9 Landscape"
+              />
 
               <div>
                 <label className="block text-slate-400 font-semibold mb-1">Overview Description</label>

@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { industries } from "@/data/industries";
 import { ArrowRight, Cpu, Activity, Car, Flame, Rocket, Building2 } from "lucide-react";
+import type { IndustryItem } from "@/lib/types";
 
 const iconMap: Record<string, React.ElementType> = {
   technology: Cpu,
@@ -13,7 +13,13 @@ const iconMap: Record<string, React.ElementType> = {
   management: Building2,
 };
 
-export function IndustriesSection() {
+interface IndustriesSectionProps {
+  industries: IndustryItem[];
+}
+
+export function IndustriesSection({ industries }: IndustriesSectionProps) {
+  if (!industries || industries.length === 0) return null;
+
   return (
     <section className="py-24 bg-slate-50 border-b border-slate-100">
       <Container>
@@ -35,7 +41,7 @@ export function IndustriesSection() {
 
         {/* Industries grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-slate-200 rounded-xl overflow-hidden">
-          {industries.map((ind, i) => {
+          {industries.map((ind) => {
             const Icon = iconMap[ind.slug] || Cpu;
             return (
               <Link
@@ -53,11 +59,25 @@ export function IndustriesSection() {
                   </div>
                 </div>
 
-                {/* Industry image placeholder */}
-                <div className="img-placeholder rounded-md h-24 mb-6 relative overflow-hidden group-hover:opacity-80 transition-opacity">
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                    <p className="text-xs text-blue-700/40">{ind.name} image</p>
-                  </div>
+                {/* Industry image / custom image */}
+                <div className="rounded-md h-24 mb-6 relative overflow-hidden bg-slate-900 border border-slate-100 group-hover:border-blue-400 transition-all">
+                  {ind.imageUrl ? (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={ind.imageUrl}
+                        alt={ind.imageAlt || ind.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent pointer-events-none" />
+                    </>
+                  ) : (
+                    <div className="img-placeholder rounded-md h-full w-full">
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                        <p className="text-xs text-blue-700/40">{ind.name} image</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Name + subtitle */}

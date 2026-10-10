@@ -7,9 +7,19 @@ import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [contactData, setContactData] = useState<{ officeImageUrl?: string; officeImageAlt?: string } | null>(null);
   const [form, setForm] = useState({
     name: "", email: "", phone: "", company: "", service: "", message: "",
   });
+
+  React.useEffect(() => {
+    fetch("/api/admin/pages")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.contact) setContactData(data.contact);
+      })
+      .catch(() => {});
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -137,11 +147,25 @@ export default function ContactPage() {
 
           {/* Right: contact info + image */}
           <div className="lg:col-span-5 py-16 lg:pl-16 space-y-10">
-            {/* Image placeholder */}
-            <div className="img-placeholder rounded-xl h-48 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                <p className="text-sm text-blue-700/50">Austin Office / Team</p>
-              </div>
+            {/* Image placeholder / custom office image */}
+            <div className="rounded-xl h-48 relative overflow-hidden bg-slate-900 border border-slate-200 shadow-md">
+              {contactData?.officeImageUrl ? (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={contactData.officeImageUrl}
+                    alt={contactData.officeImageAlt || "Austin HQ Office"}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+                </>
+              ) : (
+                <div className="img-placeholder rounded-xl h-full w-full">
+                  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                    <p className="text-sm text-blue-700/50">Austin Office / Team</p>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="space-y-2">

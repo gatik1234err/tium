@@ -2,7 +2,14 @@ import React from "react";
 import { Container } from "@/components/ui/Container";
 import { Sparkles, Shield, Compass } from "lucide-react";
 
-export function MissionVisionSection() {
+interface MissionVisionProps {
+  content?: {
+    imageUrl?: string;
+    imageAlt?: string;
+  };
+}
+
+export function MissionVisionSection({ content }: MissionVisionProps) {
   return (
     <section className="py-0 soothing-blue-mesh border-b border-blue-900/50 overflow-hidden relative">
       {/* Ambient decorative glow */}
@@ -69,12 +76,30 @@ export function MissionVisionSection() {
             by practitioners who have done the work themselves.
           </p>
 
-          {/* Vision Media Placeholder */}
-          <div className="img-placeholder-dark rounded-xl h-44 relative overflow-hidden mt-6 flex items-center justify-center">
-            <div className="text-center px-4">
-              <p className="text-sm font-medium text-sky-200/70">Aspirational Workforce Ecosystem</p>
-              <p className="text-xs text-sky-200/40 mt-1 font-mono">High-Tech & Executive Leadership</p>
-            </div>
+          {/* Vision Media Container */}
+          <div className="rounded-xl h-44 relative overflow-hidden mt-6 bg-slate-950 border border-white/10 shadow-xl flex items-center justify-center">
+            {content?.imageUrl ? (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={content.imageUrl}
+                  alt={content.imageAlt || "Workforce Ecosystem Vision"}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/30 to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-4 z-10">
+                  <p className="text-xs font-semibold text-white drop-shadow">Aspirational Workforce Ecosystem</p>
+                  <p className="text-[10px] text-sky-300 font-mono">High-Tech & Leadership Alignment</p>
+                </div>
+              </>
+            ) : (
+              <div className="img-placeholder-dark w-full h-full flex items-center justify-center">
+                <div className="text-center px-4">
+                  <p className="text-sm font-medium text-sky-200/70">Aspirational Workforce Ecosystem</p>
+                  <p className="text-xs text-sky-200/40 mt-1 font-mono">High-Tech & Executive Leadership</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </Container>

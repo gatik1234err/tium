@@ -4,7 +4,14 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ArrowUpRight } from "lucide-react";
 
-export function AboutPreview() {
+interface AboutPreviewProps {
+  content?: {
+    imageUrl?: string;
+    imageAlt?: string;
+  };
+}
+
+export function AboutPreview({ content }: AboutPreviewProps) {
   const credentials = [
     { num: "15+", label: "Years Combined Experience" },
     { num: "85%", label: "Repeat Client Rate" },
@@ -45,18 +52,32 @@ export function AboutPreview() {
             </Button>
           </div>
 
-          {/* Right: image placeholder + credential row */}
+          {/* Right: image placeholder / custom image + credential row */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Image placeholder */}
-            <div className="img-placeholder rounded-lg h-64 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                <div className="text-center">
-                  <div className="w-14 h-14 rounded-full border-2 border-blue-300/40 flex items-center justify-center mx-auto mb-2">
-                    <div className="w-7 h-7 rounded-full bg-blue-400/30" />
+            {/* Image container */}
+            <div className="rounded-xl h-64 relative overflow-hidden bg-slate-900 border border-slate-200 shadow-lg">
+              {content?.imageUrl ? (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={content.imageUrl}
+                    alt={content.imageAlt || "Team / Austin Office"}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+                </>
+              ) : (
+                <div className="img-placeholder rounded-lg h-full w-full">
+                  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                    <div className="text-center">
+                      <div className="w-14 h-14 rounded-full border-2 border-blue-300/40 flex items-center justify-center mx-auto mb-2">
+                        <div className="w-7 h-7 rounded-full bg-blue-400/30" />
+                      </div>
+                      <p className="text-sm text-blue-700/50">Team / Austin Office</p>
+                    </div>
                   </div>
-                  <p className="text-sm text-blue-700/50">Team / Austin Office</p>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Credential grid */}

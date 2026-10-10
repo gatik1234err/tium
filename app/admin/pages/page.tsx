@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { FileText, Save, Check, RefreshCw } from "lucide-react";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import type { PagesData } from "@/lib/types";
 
 export default function AdminPagesEditorPage() {
@@ -262,6 +263,23 @@ export default function AdminPagesEditorPage() {
               </div>
             </div>
 
+            {/* Hero Image Uploader */}
+            <ImageUploadField
+              label="Homepage Hero Image"
+              description="Displays prominently on the right side of the hero section behind floating candidate cards"
+              value={pages.home.hero.imageUrl || ""}
+              onChange={(url) =>
+                setPages({
+                  ...pages,
+                  home: {
+                    ...pages.home,
+                    hero: { ...pages.home.hero, imageUrl: url },
+                  },
+                })
+              }
+              aspectHint="Recommended: 16:9 or 4:3 (HD)"
+            />
+
             <h3 className="text-sm font-bold text-white font-display border-b border-slate-800 pb-2 pt-4">
               Homepage Introduction Section
             </h3>
@@ -320,6 +338,101 @@ export default function AdminPagesEditorPage() {
                 }
                 className="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-white resize-none"
               />
+            </div>
+
+            {/* Intro Image Uploader */}
+            <ImageUploadField
+              label="Introduction Office / Team Photo"
+              description="Displays in the left column of Who We Are with the pulled quote card overlay"
+              value={pages.home.intro.imageUrl || ""}
+              onChange={(url) =>
+                setPages({
+                  ...pages,
+                  home: {
+                    ...pages.home,
+                    intro: { ...pages.home.intro, imageUrl: url },
+                  },
+                })
+              }
+              aspectHint="Recommended: 4:5 or 1:1"
+            />
+
+            <h3 className="text-sm font-bold text-white font-display border-b border-slate-800 pb-2 pt-4">
+              Homepage Additional Section Graphics
+            </h3>
+
+            <div className="space-y-4">
+              <ImageUploadField
+                label="About Preview Section Photo"
+                description="Displays above the credential numbers on the homepage About preview"
+                value={pages.home.aboutPreview?.imageUrl || ""}
+                onChange={(url) =>
+                  setPages({
+                    ...pages,
+                    home: {
+                      ...pages.home,
+                      aboutPreview: { ...(pages.home.aboutPreview || {}), imageUrl: url },
+                    },
+                  })
+                }
+                aspectHint="Recommended: 16:9 or 2:1"
+              />
+
+              <ImageUploadField
+                label="Mission & Vision Section Graphic"
+                description="Displays in the dark card of the Vision column on the homepage"
+                value={pages.home.missionVision?.imageUrl || ""}
+                onChange={(url) =>
+                  setPages({
+                    ...pages,
+                    home: {
+                      ...pages.home,
+                      missionVision: { ...(pages.home.missionVision || {}), imageUrl: url },
+                    },
+                  })
+                }
+                aspectHint="Recommended: 16:9"
+              />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <ImageUploadField
+                  label="Employer CTA Card Graphic"
+                  description="Displays atop the For Organizations card"
+                  value={pages.home.dualCta.employers.imageUrl || ""}
+                  onChange={(url) =>
+                    setPages({
+                      ...pages,
+                      home: {
+                        ...pages.home,
+                        dualCta: {
+                          ...pages.home.dualCta,
+                          employers: { ...pages.home.dualCta.employers, imageUrl: url },
+                        },
+                      },
+                    })
+                  }
+                  aspectHint="Recommended: 16:9"
+                />
+
+                <ImageUploadField
+                  label="Candidate CTA Card Graphic"
+                  description="Displays atop the For Professionals card"
+                  value={pages.home.dualCta.candidates.imageUrl || ""}
+                  onChange={(url) =>
+                    setPages({
+                      ...pages,
+                      home: {
+                        ...pages.home,
+                        dualCta: {
+                          ...pages.home.dualCta,
+                          candidates: { ...pages.home.dualCta.candidates, imageUrl: url },
+                        },
+                      },
+                    })
+                  }
+                  aspectHint="Recommended: 16:9"
+                />
+              </div>
             </div>
           </div>
         )}
@@ -416,6 +529,20 @@ export default function AdminPagesEditorPage() {
                 />
               </div>
             </div>
+
+            {/* About Story Image Uploader */}
+            <ImageUploadField
+              label="Austin HQ / Team Story Photo"
+              description="Displays prominently on the left of the About page story alongside the 98.4% SLA card"
+              value={pages.about.storyImageUrl || ""}
+              onChange={(url) =>
+                setPages({
+                  ...pages,
+                  about: { ...pages.about, storyImageUrl: url },
+                })
+              }
+              aspectHint="Recommended: 4:5 or 1:1"
+            />
 
             <h3 className="text-sm font-bold text-white font-display border-b border-slate-800 pb-2 pt-4">
               Mission & Vision Statements
@@ -579,6 +706,20 @@ export default function AdminPagesEditorPage() {
                 className="w-full bg-slate-900 border border-slate-800 rounded-lg p-2 text-white"
               />
             </div>
+
+            {/* Contact Office Image Uploader */}
+            <ImageUploadField
+              label="Austin HQ / Office Environment Photo"
+              description="Displays in the right sidebar above headquarters coordinates on the Contact page"
+              value={pages.contact.officeImageUrl || ""}
+              onChange={(url) =>
+                setPages({
+                  ...pages,
+                  contact: { ...pages.contact, officeImageUrl: url },
+                })
+              }
+              aspectHint="Recommended: 16:9 or 2:1"
+            />
           </div>
         )}
 

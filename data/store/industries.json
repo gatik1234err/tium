@@ -8,6 +8,8 @@
     "subtitle": "Digital Transformation & Cloud Ecosystems",
     "overview": "From AI and distributed cloud architecture to cybersecurity and product engineering, technology moves faster than traditional recruiting can keep pace. TIUM bridges this gap by maintaining direct relationships with elite software engineers, architects, data leaders, and devops experts who catalyze technological transformation.",
     "marketInsights": "Rapid advances in generative AI, cloud-native architectures, and data engineering require specialized talent capable of architecting resilient, scalable platforms under continuous release cadences.",
+    "imageUrl": "/uploads/tech-industry.jpg",
+    "imageAlt": "Information Technology Digital Workforce Solutions",
     "specializations": [
       "Cloud & Distributed Systems (AWS, Azure, GCP)",
       "Full-Stack & Modern Web Architecture",
@@ -49,6 +51,8 @@
     "subtitle": "Clinical Excellence & Medical Technology",
     "overview": "Modern healthcare systems face unprecedented staffing pressures. TIUM provides dependable, fully-credentialed medical practitioners, nursing professionals, allied health specialists, and healthcare administration leaders to hospitals, ambulatory centers, and research organizations.",
     "marketInsights": "With ongoing shifts toward specialized outpatient care, telemedicine, and stringent clinical compliance, medical organizations require adaptable clinical talent that maintains patient safety and diagnostic rigor without compromise.",
+    "imageUrl": "/uploads/healthcare-industry.jpg",
+    "imageAlt": "Healthcare Clinical Staffing Solutions",
     "specializations": [
       "Critical Care & Emergency Nursing",
       "Allied Health Professionals & Therapists",
@@ -90,6 +94,8 @@
     "subtitle": "EV, Autonomous Systems & Smart Manufacturing",
     "overview": "The automotive sector is undergoing its most radical transformation in a century. TIUM equips Tier-1 suppliers, EV OEMs, and autonomous mobility pioneers with specialized mechanical engineers, battery chemists, embedded firmware developers, and precision assembly supervisors.",
     "marketInsights": "Electrification and autonomous driving algorithms necessitate cross-disciplinary talent blending deep mechanical engineering with high-reliability embedded software and battery chemistry safety protocols.",
+    "imageUrl": "/uploads/engineering-industry.jpg",
+    "imageAlt": "Automotive Engineering EV Manufacturing Workforce",
     "specializations": [
       "Electric Vehicle (EV) Powertrain & Battery Systems",
       "Autonomous Driving Systems & Sensor Fusion",
@@ -131,6 +137,8 @@
     "subtitle": "Upstream, Midstream & Renewable Transition",
     "overview": "Energy production demands unwavering commitment to safety, compliance, and technical precision. TIUM sources certified petroleum engineers, offshore drilling specialists, pipeline integrity managers, and environmental compliance officers for upstream, midstream, and downstream operations.",
     "marketInsights": "Energy operators are balancing traditional hydrocarbon efficiency with carbon-capture initiatives and ESG compliance, demanding engineers skilled in both legacy infrastructure and green-transition technologies.",
+    "imageUrl": "/uploads/hero-workforce.jpg",
+    "imageAlt": "Oil Gas Energy Engineering Workforce Solutions",
     "specializations": [
       "Subsea & Offshore Engineering",
       "Reservoir & Production Optimization",
@@ -172,6 +180,8 @@
     "subtitle": "Flight Systems, Defense & Space Exploration",
     "overview": "Aerospace innovation demands zero margin for error. TIUM delivers defense-cleared aerospace engineers, avionics technicians, propulsion experts, and composite materials scientists to defense contractors, commercial aviation leaders, and commercial space ventures.",
     "marketInsights": "The surge in commercial spaceflight, satellite constellations, and next-generation defense aviation requires rigorous clearance compliance, AS9100 quality adherence, and DO-178C flight software verification.",
+    "imageUrl": "/uploads/aeronautics-industry.jpg",
+    "imageAlt": "Aeronautics Aerospace Defense Engineering Talent",
     "specializations": [
       "Avionics & Flight Control Software (DO-178C)",
       "Propulsion & Thermal Dynamics Engineering",
@@ -213,6 +223,8 @@
     "subtitle": "Corporate Strategy, Finance & Operations",
     "overview": "Great strategies fail without the right leadership to execute them. TIUM partners with boards, executive committees, and business owners to place transformative directors, operational executives, financial controllers, and change-management leaders.",
     "marketInsights": "In a volatile macro environment, organizations require resilient operators who can navigate supply chain complexities, digital adoption, and cross-border workforce coordination.",
+    "imageUrl": "/uploads/austin-office.jpg",
+    "imageAlt": "Corporate Management Executive Leadership Placement",
     "specializations": [
       "Executive & C-Suite Leadership",
       "Finance, Treasury & Corporate Accounting",

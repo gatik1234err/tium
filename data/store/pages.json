@@ -9,6 +9,8 @@
       "primaryCtaLink": "/contact?intent=talent",
       "secondaryCtaText": "Explore Careers",
       "secondaryCtaLink": "/careers",
+      "imageUrl": "/uploads/engineering-industry.jpg",
+      "imageAlt": "TIUM Professional Workforce Collaboration in Austin",
       "stats": [
         {
           "value": "< 48h",
@@ -30,6 +32,8 @@
       "description": "At TIUM Staffing, we recognize that behind every groundbreaking product, flawless clinical outcome, and efficient production line are extraordinary people. We provide workforce solutions tailored precisely to your needs — emphasizing client satisfaction, pre-qualified talent, and long-term partnership.",
       "quote": "People are the foundation of every successful organization.",
       "quoteAuthor": "TIUM Staffing",
+      "imageUrl": "/uploads/team-collaboration.jpg",
+      "imageAlt": "TIUM Executive Recruiter Consultation",
       "proofPoints": [
         "15,000+ pre-screened candidates across 6 industry verticals",
         "98.4% SLA compliance across all active client engagements",
@@ -37,20 +41,32 @@
         "Full regulatory, credential, and background compliance"
       ]
     },
+    "aboutPreview": {
+      "imageUrl": "/uploads/austin-office.jpg",
+      "imageAlt": "Austin Texas Headquarters Team"
+    },
+    "missionVision": {
+      "imageUrl": "/uploads/headquarters-exterior.jpg",
+      "imageAlt": "Modern Workforce Architecture and Vision"
+    },
     "dualCta": {
       "employers": {
         "eyebrow": "FOR EMPLOYERS",
         "title": "Scale your workforce with high-performing talent.",
         "desc": "Whether you need contingent specialists or a multi-site RPO deployment, our recruitment teams deliver within 48 hours.",
         "ctaText": "Request Staffing Consultation",
-        "ctaLink": "/contact?intent=talent"
+        "ctaLink": "/contact?intent=talent",
+        "imageUrl": "/uploads/austin-office.jpg",
+        "imageAlt": "Employer Staffing Solutions"
       },
       "candidates": {
         "eyebrow": "FOR PROFESSIONALS",
         "title": "Find your next career defining opportunity.",
         "desc": "Explore high-impact positions across Information Technology, Healthcare, Automotive, Energy, and Aeronautics.",
         "ctaText": "Browse Open Positions",
-        "ctaLink": "/careers"
+        "ctaLink": "/careers",
+        "imageUrl": "/uploads/candidate-recruiter.jpg",
+        "imageAlt": "Candidate Talent Guidance"
       }
     }
   },
@@ -62,6 +78,8 @@
     "storyParagraph2": "Headquartered in Austin, Texas, TIUM was built with a different philosophy: combining deep sector domain expertise, AI-driven talent mapping, and rigorous consultative vetting to deliver long-term organizational value.",
     "statNumber": "98.4%",
     "statLabel": "Client SLA Fulfillment Rate",
+    "storyImageUrl": "/uploads/austin-office.jpg",
+    "storyImageAlt": "TIUM Austin HQ Office Environment",
     "missionTitle": "Our Mission",
     "missionDesc": "To empower innovative enterprises with pre-screened, high-performing talent while elevating professional careers through purposeful placement.",
     "visionTitle": "Our Vision",
@@ -108,6 +126,8 @@
     "phone": "+1 (307) 529 0201",
     "email": "support@tiumtech.com",
     "address": "5900 Balcone Dr STE 100, Austin, TX 78731",
-    "hours": "Monday – Friday: 8:00 AM – 6:00 PM CST"
+    "hours": "Monday – Friday: 8:00 AM – 6:00 PM CST",
+    "officeImageUrl": "/uploads/headquarters-exterior.jpg",
+    "officeImageAlt": "TIUM Austin Headquarters Building"
   }
 }

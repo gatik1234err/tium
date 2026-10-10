@@ -13,6 +13,7 @@ import {
   X,
   AlertCircle,
 } from "lucide-react";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import type { ServiceItem } from "@/lib/types";
 
 export default function AdminServicesPage() {
@@ -307,6 +308,15 @@ export default function AdminServicesPage() {
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white"
                 />
               </div>
+
+              {/* Service Image / Illustration Uploader */}
+              <ImageUploadField
+                label="Service Graphic / Photo"
+                description="Displays in the service interactive preview panel and detail hero"
+                value={editingService.imageUrl || ""}
+                onChange={(url) => setEditingService({ ...editingService, imageUrl: url })}
+                aspectHint="Recommended: 16:9 Landscape"
+              />
 
               <div>
                 <label className="block text-slate-400 font-semibold mb-1">Summary Description</label>

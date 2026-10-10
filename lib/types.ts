@@ -29,6 +29,8 @@ export interface ServiceItem {
   process: { step: string; title: string; desc: string }[];
   metrics: { label: string; value: string }[];
   roles: string[];
+  imageUrl?: string;
+  imageAlt?: string;
 }
 
 export interface IndustryItem {
@@ -44,6 +46,8 @@ export interface IndustryItem {
   keyRoles: string[];
   stats: { label: string; value: string }[];
   accentColor: string;
+  imageUrl?: string;
+  imageAlt?: string;
 }
 
 export interface ReasonItem {
@@ -113,6 +117,9 @@ export interface SiteSettings {
   email: string;
   address: string;
   websiteUrl: string;
+  logoUrl?: string;
+  logoLightUrl?: string;
+  faviconUrl?: string;
   socials: {
     linkedin: string;
     twitter: string;
@@ -136,6 +143,8 @@ export interface PagesData {
       secondaryCtaText: string;
       secondaryCtaLink: string;
       stats: { value: string; label: string }[];
+      imageUrl?: string;
+      imageAlt?: string;
     };
     intro: {
       eyebrow: string;
@@ -144,6 +153,16 @@ export interface PagesData {
       quote: string;
       quoteAuthor: string;
       proofPoints: string[];
+      imageUrl?: string;
+      imageAlt?: string;
+    };
+    aboutPreview?: {
+      imageUrl?: string;
+      imageAlt?: string;
+    };
+    missionVision?: {
+      imageUrl?: string;
+      imageAlt?: string;
     };
     dualCta: {
       employers: {
@@ -152,6 +171,8 @@ export interface PagesData {
         desc: string;
         ctaText: string;
         ctaLink: string;
+        imageUrl?: string;
+        imageAlt?: string;
       };
       candidates: {
         eyebrow: string;
@@ -159,6 +180,8 @@ export interface PagesData {
         desc: string;
         ctaText: string;
         ctaLink: string;
+        imageUrl?: string;
+        imageAlt?: string;
       };
     };
   };
@@ -174,12 +197,15 @@ export interface PagesData {
     missionDesc: string;
     visionTitle: string;
     visionDesc: string;
+    storyImageUrl?: string;
+    storyImageAlt?: string;
   };
   whyTium: {
     eyebrow: string;
     title: string;
     description: string;
     stats: { value: string; label: string; sub: string }[];
+    heroImageUrl?: string;
   };
   careers: {
     eyebrow: string;
@@ -187,6 +213,7 @@ export interface PagesData {
     description: string;
     searchPlaceholder: string;
     noResultsText: string;
+    bannerImageUrl?: string;
   };
   contact: {
     eyebrow: string;
@@ -196,6 +223,8 @@ export interface PagesData {
     email: string;
     address: string;
     hours: string;
+    officeImageUrl?: string;
+    officeImageAlt?: string;
   };
 }
 

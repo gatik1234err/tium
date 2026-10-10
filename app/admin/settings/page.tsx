@@ -13,6 +13,7 @@ import {
   Lock,
   Building2,
 } from "lucide-react";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import type { SiteSettings } from "@/lib/types";
 
 export default function AdminSettingsPage() {
@@ -184,6 +185,15 @@ export default function AdminSettingsPage() {
             />
           </div>
         </div>
+
+        {/* Brand Logo Uploader */}
+        <ImageUploadField
+          label="Corporate Brand Logo"
+          description="Upload custom company logo to appear in Navbar and Footer"
+          value={settings.logoUrl || ""}
+          onChange={(url) => setSettings({ ...settings, logoUrl: url })}
+          aspectHint="Square icon or horizontal logo (SVG / PNG)"
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>

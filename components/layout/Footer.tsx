@@ -24,6 +24,17 @@ export function Footer() {
     }
   };
 
+  const [logoUrl, setLogoUrl] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    fetch("/api/admin/settings")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data?.logoUrl) setLogoUrl(data.logoUrl);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <footer className="soothing-blue-mesh text-slate-300 border-t border-blue-900/60 relative overflow-hidden">
       {/* Ambient decorative glow */}
@@ -36,10 +47,17 @@ export function Footer() {
             {/* Brand */}
             <div className="lg:col-span-4 space-y-6">
               <Link href="/" className="inline-flex items-center gap-3">
-                <div className="w-9 h-9 rounded bg-white flex items-center justify-center shadow-sm">
-                  <span className="text-blue-950 font-bold font-display text-lg">T</span>
-                </div>
-                <span className="text-2xl font-bold text-white font-display">TIUM</span>
+                {logoUrl ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img src={logoUrl} alt="TIUM Staffing" className="h-9 w-auto max-w-[140px] object-contain brightness-0 invert" />
+                ) : (
+                  <>
+                    <div className="w-9 h-9 rounded bg-white flex items-center justify-center shadow-sm">
+                      <span className="text-blue-950 font-bold font-display text-lg">T</span>
+                    </div>
+                    <span className="text-2xl font-bold text-white font-display">TIUM</span>
+                  </>
+                )}
               </Link>
               <p className="text-blue-100/70 text-sm leading-relaxed max-w-xs">
                 Connecting exceptional talent with exceptional organizations. Workforce solutions built for velocity, precision, and lasting impact.

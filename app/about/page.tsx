@@ -35,16 +35,30 @@ export default async function AboutPage() {
       {/* ── Story + image ── */}
       <section className="border-b border-slate-100">
         <Container className="grid grid-cols-1 lg:grid-cols-2 gap-0 divide-y lg:divide-y-0 lg:divide-x divide-slate-100 py-0">
-          {/* Image placeholder */}
-          <div className="img-placeholder min-h-[400px] relative">
-            <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-              <div className="text-center">
-                <div className="w-14 h-14 rounded-full border-2 border-blue-300/40 flex items-center justify-center mx-auto mb-3">
-                  <div className="w-7 h-7 rounded-full bg-blue-400/30" />
+          {/* Image placeholder / custom image */}
+          <div className="relative min-h-[400px] overflow-hidden bg-slate-900 border-r border-slate-100">
+            {about.storyImageUrl ? (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={about.storyImageUrl}
+                  alt={about.storyImageAlt || "Austin HQ / Team Photo"}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+              </>
+            ) : (
+              <div className="img-placeholder min-h-[400px] w-full h-full">
+                <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                  <div className="text-center">
+                    <div className="w-14 h-14 rounded-full border-2 border-blue-300/40 flex items-center justify-center mx-auto mb-3">
+                      <div className="w-7 h-7 rounded-full bg-blue-400/30" />
+                    </div>
+                    <p className="text-sm text-blue-700/50 font-medium">Austin HQ / Team Photo</p>
+                  </div>
                 </div>
-                <p className="text-sm text-blue-700/50 font-medium">Austin HQ / Team Photo</p>
               </div>
-            </div>
+            )}
             {/* Overlay stat card */}
             <div className="absolute bottom-8 left-8 z-20 bg-white rounded-lg shadow-xl p-5 border border-slate-100">
               <p className="text-3xl font-bold text-slate-900 font-display">{about.statNumber || "98.4%"}</p>

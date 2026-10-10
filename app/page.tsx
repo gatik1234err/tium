@@ -9,12 +9,16 @@ import { WhyTiumSection } from "@/components/home/WhyTiumSection";
 import { MissionVisionSection } from "@/components/home/MissionVisionSection";
 import { ValuesSection } from "@/components/home/ValuesSection";
 import { DualCtaSection } from "@/components/home/DualCtaSection";
-import { getPages } from "@/lib/store";
+import { getPages, getServices, getIndustries } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const pages = await getPages();
+  const [pages, services, industries] = await Promise.all([
+    getPages(),
+    getServices(),
+    getIndustries(),
+  ]);
 
   return (
     <>
@@ -25,28 +29,28 @@ export default async function HomePage() {
       <TrustBar />
 
       {/* 3. Introduction */}
-      <Introduction />
+      <Introduction content={pages?.home?.intro} />
 
       {/* 4. About Preview */}
-      <AboutPreview />
+      <AboutPreview content={pages?.home?.aboutPreview} />
 
       {/* 5. Services Interactive */}
-      <ServicesSection />
+      <ServicesSection services={services} />
 
       {/* 6. Industries */}
-      <IndustriesSection />
+      <IndustriesSection industries={industries} />
 
       {/* 7. Why TIUM */}
       <WhyTiumSection />
 
       {/* 8. Mission & Vision */}
-      <MissionVisionSection />
+      <MissionVisionSection content={pages?.home?.missionVision} />
 
       {/* 9. Values */}
       <ValuesSection />
 
       {/* 10. Employer / Candidate Dual CTA */}
-      <DualCtaSection />
+      <DualCtaSection content={pages?.home?.dualCta} />
     </>
   );
 }

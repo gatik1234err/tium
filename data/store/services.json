@@ -8,6 +8,8 @@
     "tagline": "End-to-end recruitment operations built to scale with enterprise velocity.",
     "description": "Comprehensive recruitment operations and sourcing infrastructure designed for organizations seeking to augment or outsource critical talent acquisition functions.",
     "fullOverview": "TIUM's Recruitment Process Outsourcing (RPO) delivers enterprise-grade recruiting machinery without the internal overhead. We embed seasoned talent strategists, advanced ATS integrations, and active sourcing pipelines directly into your operational workflow. Whether scaling a 50-person engineering hub or continuous high-volume clinical hires, our RPO model adapts dynamically to demand curves while driving down cost-per-hire and time-to-productivity.",
+    "imageUrl": "/uploads/team-collaboration.jpg",
+    "imageAlt": "RPO Recruitment Process Outsourcing Team Collaboration",
     "benefits": [
       "Up to 45% reduction in average hiring cycle duration",
       "Seamless integration with existing enterprise HRIS & ATS tech stacks",
@@ -73,6 +75,8 @@
     "tagline": "Agile, high-caliber talent deployed rapidly to meet changing operational demands.",
     "description": "Flexible workforce capacity engineered for peak cycles, unexpected surges, and specialized project timelines across technical and operational domains.",
     "fullOverview": "In modern markets, flexibility is an indispensable competitive asset. TIUM's Contingent Staffing practice empowers organizations to scale up or contract their personnel with zero friction. We maintain pre-screened rosters of specialized practitioners across engineering, healthcare, energy, and operations who can step into high-impact environments on short notice.",
+    "imageUrl": "/uploads/candidate-recruiter.jpg",
+    "imageAlt": "Contingent Staffing Candidate Recruiter Engagement",
     "benefits": [
       "Rapid deployment of pre-qualified professionals within 48–72 hours",
       "Zero long-term balance sheet liabilities or fixed payroll overhead",
@@ -138,6 +142,8 @@
     "tagline": "Permanent leadership and specialist placements that define institutional culture.",
     "description": "Retained and contingency permanent placement services built to secure mission-critical leaders, innovators, and pillars for your company's future.",
     "fullOverview": "Direct hire requires far more than matching keywords on resumes. It demands a holistic evaluation of leadership style, intellectual curiosity, cultural synergy, and long-term organizational trajectory. TIUM executes proactive, consultative headhunting that reaches passive leaders who aren't browsing job boards.",
+    "imageUrl": "/uploads/austin-office.jpg",
+    "imageAlt": "Direct Hire Executive Recruitment Austin Office",
     "benefits": [
       "Comprehensive candidate warranty and placement guarantees",
       "Access to passive top-tier industry talent not in the open market",
@@ -203,6 +209,8 @@
     "tagline": "Specialized subject-matter experts for fixed-scope, high-stakes deliverables.",
     "description": "Targeted contract engagements providing niche technical mastery for digital transformations, regulatory compliance, plant turnarounds, and complex system implementations.",
     "fullOverview": "When organizations undertake complex initiatives—such as an enterprise ERP migration, regulatory FDA re-certification, or aerospace flight software validation—they require niche expertise that may not be needed permanently. TIUM's Contract Hire service connects you with elite consultants with proven track records in high-stakes environments.",
+    "imageUrl": "/uploads/hero-workforce.jpg",
+    "imageAlt": "Contract Hire Specialist Workforce Solutions",
     "benefits": [
       "Precise skill-to-scope matching for immediate project acceleration",
       "Clear financial predictability with fixed or capped hourly models",
@@ -268,6 +276,8 @@
     "tagline": "Strategic market intelligence and opportunity pipelines driving commercial growth.",
     "description": "Bespoke pipeline generation strategies that identify hiring demand signals, commercial opportunities, and emerging talent hubs in your target markets.",
     "fullOverview": "Sustained organizational growth requires continuous visibility into market demand and talent availability. TIUM blends algorithmic data analytics with human research to identify high-potential enterprise leads, upcoming project tenders, and organizational expansion signals before they become public knowledge.",
+    "imageUrl": "/uploads/headquarters-exterior.jpg",
+    "imageAlt": "Lead Generation Market Intelligence Business Development",
     "benefits": [
       "Early intelligence on enterprise hiring ramp-ups and tenders",
       "Custom market mapping across niche geographic regions",
@@ -333,6 +343,8 @@
     "tagline": "Proactive talent reservoirs built ahead of your critical hiring curve.",
     "description": "Dedicated candidate research, talent pool nurturing, and diversity pipelining that ensures you never hire from a position of desperation.",
     "fullOverview": "The best time to source exceptional talent is before the vacancy occurs. TIUM's Candidate Sourcing service continuously engages, assesses, and maintains active dialogues with top performers across Information Technology, Healthcare, Automotive, Energy, Aerospace, and Corporate Management.",
+    "imageUrl": "/uploads/candidate-recruiter.jpg",
+    "imageAlt": "Candidate Sourcing and Pipelining Talent Strategy",
     "benefits": [
       "Eliminate reactive hiring stress with on-demand candidate pipelines",
       "Pre-screened, warm talent ready for immediate interview stages",
